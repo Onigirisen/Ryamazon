@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -33,10 +33,12 @@ function LoginForm() {
 
   return (
     <div className="login-form">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-        alt="login-logo"
-      />
+      <Link to="/">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+          alt="login-logo"
+        />
+      </Link>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <ul>
