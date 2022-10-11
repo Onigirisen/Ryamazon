@@ -30,42 +30,62 @@ function LoginForm() {
       }
     );
   };
+  const handleClick = (e) => {
+    const demoCred = { name: "Demo User", email: "demo@user.io" };
+    const demoPass = "password";
+    return dispatch(sessionActions.login({ demoCred, demoPass }));
+  };
 
   return (
-    <div className="login-form">
+    <div className="login-container">
       <Link to="/">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
           alt="login-logo"
+          className="login-logo"
         />
       </Link>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error) => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Log In</button>
-      </form>
+      <div className="login-form">
+        <h1>Sign In</h1>
+        <form onSubmit={handleSubmit}>
+          <ul>
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+          <label>
+            Email
+            <input
+              type="text"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Password
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <button type="submit" className="signin-button">
+            Continue
+          </button>
+          <button type="submit" className="demo-button" onClick={handleClick}>
+            Demo User
+          </button>
+        </form>
+        <p>
+          By continuing, you agree to Ryamazon's Conditions of Use and Privacy
+          Notice.
+        </p>
+        <button type="submit" className="signup-button">
+          Create Your Ryamazon Account
+        </button>
+      </div>
     </div>
   );
 }

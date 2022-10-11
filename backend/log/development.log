@@ -970,3 +970,160 @@ Processing by Api::SessionsController#show as JSON
 Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 981)
 
 
+Started GET "/api/session" for 127.0.0.1 at 2022-10-10 20:42:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 11.6ms | Allocations: 5594)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-10-11 05:30:57 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+Completed 200 OK in 473ms (Views: 0.7ms | ActiveRecord: 26.3ms | Allocations: 4034)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-10-11 05:31:50 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 978)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-10-11 05:32:03 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 965)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-10-11 05:33:41 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 977)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-10-11 05:43:32 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+Completed 200 OK in 42ms (Views: 0.2ms | ActiveRecord: 11.5ms | Allocations: 3789)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-10-11 05:45:35 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 956)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-10-11 05:47:40 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 956)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-10-11 06:01:53 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `find_by_credentials'
+Completed 401 Unauthorized in 31ms (Views: 0.2ms | ActiveRecord: 15.9ms | Allocations: 4017)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-10-11 06:01:54 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `find_by_credentials'
+Completed 401 Unauthorized in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1112)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-10-11 06:01:55 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `find_by_credentials'
+Completed 401 Unauthorized in 19ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 1098)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-10-11 06:02:18 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `find_by_credentials'
+Completed 401 Unauthorized in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1109)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:35:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "demo"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demouser@demo.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:35:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "demo"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demouser@demo.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:35:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "demo"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demouser@demo.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Demo User"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@user.io"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "name", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "demo@user.io"], ["name", "Demo User"], ["password_digest", "[FILTERED]"], ["session_token", "[FILTERED]"], ["created_at", "2022-10-11 10:12:17.352654"], ["updated_at", "2022-10-11 10:12:17.352654"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/api/session" for 127.0.0.1 at 2022-10-11 06:13:01 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 2.9ms | Allocations: 5596)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-10-11 06:13:17 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `find_by_credentials'
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1276)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-10-11 07:09:35 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `find_by_credentials'
+Completed 401 Unauthorized in 256ms (Views: 1.1ms | ActiveRecord: 80.3ms | Allocations: 4123)
+
+
