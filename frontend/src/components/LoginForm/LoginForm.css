@@ -32,6 +32,8 @@
   margin-bottom: 2px;
   display: flex;
   flex-direction: column;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .login-form > form > label > input {
@@ -50,7 +52,7 @@
   line-height: 1.5;
 }
 
-.signin-button {
+.signup-button {
   width: 100%;
   background-color: rgb(240, 193, 75);
   height: 31px;
@@ -70,7 +72,7 @@
   margin-top: 10px;
 }
 
-.signup-button {
+.create-account-button {
   width: 100%;
   height: 31px;
   border: 1px solid;

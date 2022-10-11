@@ -1,0 +1,69 @@
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-logo {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100px;
+  object-fit: contain;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  width: 296px;
+  padding: 20px 26px 20px 26px;
+  height: fit-content;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 4px;
+}
+.signup-form > h1 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.signup-form > form > label {
+  margin-bottom: 2px;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.signup-form > form > label > input {
+  width: 98%;
+  height: 31px;
+  background-color: rgb(255, 255, 255);
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  border: 1px solid rgb(166, 166, 166);
+}
+
+.signin-button {
+  width: 100%;
+  background-color: rgb(240, 193, 75);
+  height: 31px;
+  border: 1px solid;
+  border-radius: 3px;
+  border-color: rgb(168, 135, 52) rgb(156, 126, 49) rgb(132, 106, 41);
+  margin-top: 10px;
+}
+.signup-form > p {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.password-requirement {
+  font-size: 12px;
+  line-height: 15px;
+  text-align: left;
+}

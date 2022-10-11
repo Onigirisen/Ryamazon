@@ -19,10 +19,9 @@ function LoginForm() {
       async (res) => {
         let data;
         try {
-          // .clone() essentially allows you to read the response body twice
           data = await res.clone().json();
         } catch {
-          data = await res.text(); // Will hit this case if, e.g., server is down
+          data = await res.text();
         }
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
@@ -31,9 +30,12 @@ function LoginForm() {
     );
   };
   const handleClick = (e) => {
-    const demoCred = { name: "Demo User", email: "demo@user.io" };
-    const demoPass = "password";
-    return dispatch(sessionActions.login({ demoCred, demoPass }));
+    e.preventDefault();
+    setCredential("demo@user.io");
+    setPassword("password");
+    return dispatch(
+      sessionActions.login({ credential: "demo@user.io", password: "password" })
+    );
   };
 
   return (
@@ -46,7 +48,7 @@ function LoginForm() {
         />
       </Link>
       <div className="login-form">
-        <h1>Sign In</h1>
+        <h1>Sign in</h1>
         <form onSubmit={handleSubmit}>
           <ul>
             {errors.map((error) => (
@@ -74,17 +76,26 @@ function LoginForm() {
           <button type="submit" className="signin-button">
             Continue
           </button>
-          <button type="submit" className="demo-button" onClick={handleClick}>
-            Demo User
-          </button>
         </form>
-        <p>
-          By continuing, you agree to Ryamazon's Conditions of Use and Privacy
-          Notice.
-        </p>
-        <button type="submit" className="signup-button">
-          Create Your Ryamazon Account
+        <button className="demo-button" onClick={handleClick}>
+          Demo User
         </button>
+        <p>
+          By continuing, you agree to Ryamazon's{" "}
+          <a style={{ textDecoration: "none", color: "#0066c0" }} href="#">
+            Conditions of Use
+          </a>{" "}
+          and{" "}
+          <a style={{ textDecoration: "none", color: "#0066c0" }} href="#">
+            Privacy Notice
+          </a>
+          .
+        </p>
+        <Link to="/signup">
+          <button type="submit" className="create-account-button">
+            Create Your Ryamazon Account
+          </button>
+        </Link>
       </div>
     </div>
   );

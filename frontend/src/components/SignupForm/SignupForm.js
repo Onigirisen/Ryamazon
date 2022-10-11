@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
 function SignupForm() {
@@ -39,53 +39,82 @@ function SignupForm() {
   };
 
   return (
-    <>
-      <h1>Create Account</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error) => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Your Name
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Re-enter Password
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Verify Email</button>
-      </form>
-    </>
+    <div className="signup-container">
+      <Link to="/">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+          alt="login-logo"
+          className="login-logo"
+        />
+      </Link>
+      <div className="signup-form">
+        <h1>Create account</h1>
+        <form onSubmit={handleSubmit}>
+          <ul>
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+          <label>
+            Your Name
+            <input
+              type="text"
+              placeholder="First and last name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Email
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Password
+            <input
+              type="password"
+              placeholder="At least 6 characters"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <div className="password-req-container">
+            <div className="password-requirement">
+              Passwords must be at least 6 characters
+            </div>
+          </div>
+          <label>
+            Re-enter Password
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </label>
+          <button className="signup-button" type="submit">
+            Continue
+          </button>
+        </form>
+        <p>
+          By creating an account, you agree to Ryamazon's{" "}
+          <a style={{ textDecoration: "none", color: "#0066c0" }} href="">
+            Conditions of Use
+          </a>{" "}
+          and{" "}
+          <a style={{ textDecoration: "none", color: "#0066c0" }} href="">
+            Privacy Notice
+          </a>
+          .
+        </p>
+      </div>
+    </div>
   );
 }
 

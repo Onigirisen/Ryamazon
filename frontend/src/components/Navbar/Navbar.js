@@ -1,7 +1,16 @@
 import shoppingCart from "../../assets/images/shopping-cart-icon.png";
 import { Link } from "react-router-dom";
+import * as sessionActions from "../../store/session";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
+
+  const handleClick = (e) => {
+    dispatch(sessionActions.logout());
+  };
+
   return (
     <div className="navbar">
       <Link to="/">
@@ -14,20 +23,35 @@ const Navbar = () => {
 
       <div className="search-bar">
         <input type="text" className="search-bar-input" />
-        <img
-          src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"
-          alt="magnifying-glass"
-          className="search-bar-icon"
-        />
+        <div className="search-bar-button-container">
+          <button type="submit" className="search-bar-button">
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+          {/* <img
+            src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"
+            alt="magnifying-glass"
+            className="search-bar-icon"
+          /> */}
+        </div>
       </div>
 
       <div className="nav-links-container"></div>
-      <Link to="/login">
-        <div className="nav-link">
-          <span className="nav-link-top-line">Hello Guest</span>
-          <span className="nav-link-bottom-line">Sign In</span>
-        </div>
-      </Link>
+      {sessionUser && (
+        <Link to="/" onClick={handleClick}>
+          <div className="nav-link">
+            <span className="nav-link-top-line">Hello {sessionUser.name}</span>
+            <span className="nav-link-bottom-line">Sign out</span>
+          </div>
+        </Link>
+      )}
+      {!sessionUser && (
+        <Link to="/login">
+          <div className="nav-link">
+            <span className="nav-link-top-line">Hello Guest</span>
+            <span className="nav-link-bottom-line">Sign In</span>
+          </div>
+        </Link>
+      )}
       <div className="nav-link">
         <span className="nav-link-top-line">Returns</span>
         <span className="nav-link-bottom-line">& Orders</span>
