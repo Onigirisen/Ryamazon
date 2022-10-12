@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 function SignupForm() {
   const dispatch = useDispatch();
@@ -47,14 +48,33 @@ function SignupForm() {
           className="login-logo"
         />
       </Link>
+      {errors.length > 0 && (
+        <div className="errors-container">
+          <div style={{ flex: "10%", width: "63px" }}>
+            <div
+              className="svgcontainer"
+              style={{ marginLeft: "auto", width: "35px", marginTop: "5px" }}
+            >
+              <WarningAmberIcon fontSize="large" />
+            </div>
+          </div>
+          <div className="errors-message-box">
+            <div className="svgcontainer" style={{ display: "flex" }}>
+              <h4 style={{ color: "#c40000" }}>There was a problem</h4>
+            </div>
+            <div className="error-messages">
+              <ul>
+                {errors.map((error) => (
+                  <li key={error}>{error}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="signup-form">
         <h1>Create account</h1>
         <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
           <label>
             Your Name
             <input
@@ -62,7 +82,6 @@ function SignupForm() {
               placeholder="First and last name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              required
             />
           </label>
           <label>
@@ -71,7 +90,6 @@ function SignupForm() {
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
             />
           </label>
           <label>
@@ -81,7 +99,6 @@ function SignupForm() {
               placeholder="At least 6 characters"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
             />
           </label>
           <div className="password-req-container">
@@ -95,7 +112,6 @@ function SignupForm() {
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              required
             />
           </label>
           <button className="signup-button" type="submit">

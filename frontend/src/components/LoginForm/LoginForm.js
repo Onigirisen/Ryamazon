@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
+import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ function LoginForm() {
     e.preventDefault();
     setCredential("demo@user.io");
     setPassword("password");
-    return dispatch(
+    dispatch(
       sessionActions.login({ credential: "demo@user.io", password: "password" })
     );
   };
@@ -47,21 +48,40 @@ function LoginForm() {
           className="login-logo"
         />
       </Link>
+
+      {errors.length > 0 && (
+        <div className="errors-container">
+          <div style={{ flex: "10%", width: "63px" }}>
+            <div
+              className="svgcontainer"
+              style={{ marginLeft: "10px", width: "35px", marginTop: "5px" }}
+            >
+              <WarningAmberIcon fontSize="large" />
+            </div>
+          </div>
+          <div className="errors-message-box">
+            <div className="svgcontainer" style={{ display: "flex" }}>
+              <h4 style={{ color: "#c40000" }}>There was a problem</h4>
+            </div>
+            <div className="error-messages">
+              <ul>
+                {errors.map((error) => (
+                  <li key={error}>{error}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="login-form">
         <h1>Sign in</h1>
         <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
           <label>
             Email
             <input
               type="text"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
-              required
             />
           </label>
           <label>
@@ -70,7 +90,6 @@ function LoginForm() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
             />
           </label>
           <button type="submit" className="signin-button">

@@ -11,8 +11,35 @@
 .logo {
   width: 100px;
   object-fit: contain;
-  margin: 0 20px;
-  margin-top: 18px;
+  margin: 0 15px 0px 0px;
+  /* margin-top: 18px; */
+  border: 1px solid transparent;
+  padding: 3px;
+}
+
+.logo:hover {
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
+.category-drop-down-container {
+  display: flex;
+  align-items: center;
+  width: 42px;
+  position: relative;
+  height: 100%;
+}
+
+.category-fascade-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category-drop-down {
+  height: 100%;
+  border-radius: 4px 0px 0px 4px;
+  align-items: center;
 }
 
 .search-bar {
@@ -28,7 +55,7 @@
   padding: 10px;
   border: none;
   width: 100%;
-  border-radius: 4px 0px 0px 4px;
+  /* border-radius: 4px 0px 0px 4px; */
 }
 
 .search-bar-button-container {
@@ -65,6 +92,14 @@
   margin-left: 10px;
   margin-right: 10px;
   color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 3px;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 3px;
 }
 
 .nav-link-top-line {

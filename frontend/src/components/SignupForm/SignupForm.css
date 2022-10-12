@@ -47,15 +47,21 @@
   border: 1px solid rgb(166, 166, 166);
 }
 
-.signin-button {
+.signup-button {
   width: 100%;
-  background-color: rgb(240, 193, 75);
   height: 31px;
   border: 1px solid;
   border-radius: 3px;
   border-color: rgb(168, 135, 52) rgb(156, 126, 49) rgb(132, 106, 41);
   margin-top: 10px;
+  background: linear-gradient(to bottom, rgb(250, 212, 122), rgb(240, 193, 75));
+  background-image: linear-gradient(rgb(250, 213, 126), rgb(240, 193, 75));
 }
+
+.signup-button:hover {
+  background-image: linear-gradient(rgb(250, 213, 126), rgb(211, 167, 55));
+}
+
 .signup-form > p {
   margin-top: 10px;
   font-size: 12px;

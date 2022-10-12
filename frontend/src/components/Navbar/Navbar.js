@@ -22,16 +22,21 @@ const Navbar = () => {
       </Link>
 
       <div className="search-bar">
+        <div className="category-drop-down-container">
+          <div className="category-fascade-container">
+            <span className="category-fascade">All</span>
+            <i className="fa-sharp fa-solid fa-caret-down"></i>
+          </div>
+          <select className="category-drop-down">
+            <option value="all">All</option>
+            <option value="best sellers">Best Sellers</option>
+          </select>
+        </div>
         <input type="text" className="search-bar-input" />
         <div className="search-bar-button-container">
           <button type="submit" className="search-bar-button">
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
-          {/* <img
-            src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"
-            alt="magnifying-glass"
-            className="search-bar-icon"
-          /> */}
         </div>
       </div>
 
