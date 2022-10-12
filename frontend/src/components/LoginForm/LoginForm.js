@@ -41,6 +41,7 @@ function LoginForm() {
 
   return (
     <div className="login-container">
+      {console.log("HELLO")};{console.log(errors + "------------------")};
       <Link to="/">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
@@ -48,7 +49,6 @@ function LoginForm() {
           className="login-logo"
         />
       </Link>
-
       {errors.length > 0 && (
         <div className="errors-container">
           <div style={{ flex: "10%", width: "63px" }}>
@@ -110,12 +110,16 @@ function LoginForm() {
           </a>
           .
         </p>
-        <Link to="/signup">
-          <button type="submit" className="create-account-button">
-            Create Your Ryamazon Account
-          </button>
-        </Link>
       </div>
+      <div className="break-container">
+        <div className="break-line"></div>
+        <h5>New to Ryamazon?</h5>
+      </div>
+      <Link to="/signup">
+        <button type="submit" className="create-account-button">
+          Create Your Ryamazon Account
+        </button>
+      </Link>
     </div>
   );
 }
