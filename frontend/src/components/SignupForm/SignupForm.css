@@ -46,6 +46,11 @@
   margin-bottom: 10px;
   border: 1px solid rgb(166, 166, 166);
 }
+.signup-form > form > label > input:focus {
+  outline: none !important;
+  border-color: (240, 193, 75);
+  box-shadow: 0 0 0 2px rgb(250, 153, 17);
+}
 
 .signup-button {
   width: 100%;
@@ -56,6 +61,7 @@
   margin-top: 10px;
   background: linear-gradient(to bottom, rgb(250, 212, 122), rgb(240, 193, 75));
   background-image: linear-gradient(rgb(250, 213, 126), rgb(240, 193, 75));
+  cursor: pointer;
 }
 
 .signup-button:hover {
@@ -72,4 +78,15 @@
   font-size: 12px;
   line-height: 15px;
   text-align: left;
+}
+
+.input-field-error-message-container {
+  font-size: 12px;
+  font-weight: 100;
+  color: rgb(196, 0, 0);
+}
+
+.input-field-require-message-container {
+  font-size: 12px;
+  font-weight: 100;
 }

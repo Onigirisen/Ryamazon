@@ -21,39 +21,39 @@ function SignupForm() {
   const [confirmPasswordErrors, setConfirmPasswordErrors] = useState(false);
   const [confirmPasswordErrorsMessage, setConfirmPasswordErrorsMessage] =
     useState("");
+  const validInput = "valid-input-field";
 
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name.length < 0) {
+    if (name.length < 1) {
       setNameErrors(true);
       setNameErrorsMessage("Enter your name");
     }
-    if (email.length < 0) {
+    console.log(nameErrorsMessage);
+    if (email.length < 1) {
       setEmailErrors(true);
       setEmailErrorsMessage("Enter your email");
-    } else if (!email.includes("@")) {
+    } else if (!email.includes("@") && email.length > 0) {
       setEmailErrors(true);
       setEmailErrorsMessage("Wrong or Invalid email address");
     }
     if (password.length < 6) {
       setPasswordErrors(true);
-      setPasswordErrors("Minimum 6 characters required");
+      setPasswordErrorsMessage("Minimum 6 characters required");
     }
     if (password !== confirmPassword) {
       setPasswordErrors(true);
       setConfirmPasswordErrors(true);
-      setConfirmPasswordErrors("Passwords must match");
+      setConfirmPasswordErrorsMessage("Passwords must match");
     } else {
       setConfirmPasswordErrors(true);
-      setConfirmPasswordErrors("Type your password again");
+      setConfirmPasswordErrorsMessage("Type your password again");
     }
 
-    const handleInput = (e) => {};
-
     if (password === confirmPassword) {
-      setErrors([]);
+      // setErrors([]);
       return dispatch(sessionActions.signup({ email, name, password })).catch(
         async (res) => {
           let data;
@@ -74,9 +74,28 @@ function SignupForm() {
       );
     }
 
-    return setErrors([
-      "Confirm Password field must be the same as the Password field",
-    ]);
+    // return setErrors([
+    //   "Confirm Password field must be the same as the Password field",
+    // ]);
+  };
+
+  const handleOnChange = (e) => {
+    if (e.target.name === "name") {
+      setName(e.target.value);
+      setNameErrors(false);
+    }
+    if (e.target.name === "email") {
+      setEmail(e.target.value);
+      setEmailErrors(false);
+    }
+    if (e.target.name === "password") {
+      setPassword(e.target.value);
+      setPasswordErrors(false);
+    }
+    if (e.target.name === "confirmPassword") {
+      setConfirmPassword(e.target.value);
+      setConfirmPasswordErrors(false);
+    }
   };
 
   return (
@@ -117,42 +136,127 @@ function SignupForm() {
         <form onSubmit={handleSubmit}>
           <label>
             Your Name
-            <input
-              type="text"
-              placeholder="First and last name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
+            {nameErrors && (
+              <input
+                autoFocus
+                type="text"
+                name="name"
+                placeholder="First and last name"
+                value={name}
+                onChange={handleOnChange}
+              />
+            )}
+            {nameErrors && (
+              <div className="input-field-error-message-container">
+                <span className="input-field-error-message">
+                  {nameErrorsMessage}
+                </span>
+              </div>
+            )}
+            {!nameErrors && (
+              <input
+                className={validInput}
+                autoFocus
+                type="text"
+                name="name"
+                placeholder="First and last name"
+                value={name}
+                onChange={handleOnChange}
+              />
+            )}
           </label>
           <label>
             Email
-            <input
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            {emailErrors && (
+              <input
+                autoFocus
+                type="text"
+                name="email"
+                value={email}
+                onChange={handleOnChange}
+              />
+            )}
+            {emailErrors && (
+              <div className="input-field-error-message-container">
+                <span className="input-field-error-message">
+                  {emailErrorsMessage}
+                </span>
+              </div>
+            )}
+            {!emailErrors && (
+              <input
+                className="valid-input-field"
+                type="text"
+                name="email"
+                value={email}
+                onChange={handleOnChange}
+              />
+            )}
           </label>
           <label>
             Password
-            <input
-              type="password"
-              placeholder="At least 6 characters"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            {passwordErrors && (
+              <input
+                autoFocus
+                type="password"
+                name="password"
+                placeholder="At least 6 characters"
+                value={password}
+                onChange={handleOnChange}
+              />
+            )}
+            {passwordErrors && (
+              <div className="input-field-error-message-container">
+                <span className="input-field-error-message">
+                  {passwordErrorsMessage}
+                </span>
+              </div>
+            )}
+            {!passwordErrors && (
+              <input
+                className="valid-input-field"
+                type="password"
+                name="password"
+                placeholder="At least 6 characters"
+                value={password}
+                onChange={handleOnChange}
+              />
+            )}
+            {!passwordErrors && (
+              <div className="input-field-require-message-container">
+                <span className="password-requirement">
+                  Passwords must be at least 6 characters
+                </span>
+              </div>
+            )}
           </label>
-          <div className="password-req-container">
-            <div className="password-requirement">
-              Passwords must be at least 6 characters
-            </div>
-          </div>
           <label>
             Re-enter Password
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
+            {confirmPasswordErrors && (
+              <input
+                autoFocus
+                type="password"
+                name="confirmPassword"
+                value={confirmPassword}
+                onChange={handleOnChange}
+              />
+            )}
+            {confirmPasswordErrors && (
+              <div className="input-field-error-message-container">
+                <span className="input-field-error-message">
+                  {confirmPasswordErrorsMessage}
+                </span>
+              </div>
+            )}
+            {!confirmPasswordErrors && (
+              <input
+                className="valid-input-field"
+                type="password"
+                name="confirmPassword"
+                value={confirmPassword}
+                onChange={handleOnChange}
+              />
+            )}
           </label>
           <button className="signup-button" type="submit">
             Continue
