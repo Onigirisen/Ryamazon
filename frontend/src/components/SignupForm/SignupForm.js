@@ -33,7 +33,23 @@ function SignupForm() {
     if (email.length < 0) {
       setEmailErrors(true);
       setEmailErrorsMessage("Enter your email");
+    } else if (!email.includes("@")) {
+      setEmailErrors(true);
+      setEmailErrorsMessage("Wrong or Invalid email address");
     }
+    if (password.length < 6) {
+      setPasswordErrors(true);
+      setPasswordErrors("Minimum 6 characters required");
+    }
+    if (password !== confirmPassword) {
+      setPasswordErrors(true);
+      setConfirmPasswordErrors(true);
+      setConfirmPasswordErrors("Passwords must match");
+    } else {
+      setConfirmPasswordErrors(true);
+      setConfirmPasswordErrors("Type your password again");
+    }
+
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, name, password })).catch(

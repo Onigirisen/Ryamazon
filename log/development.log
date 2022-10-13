@@ -7531,3 +7531,26 @@ Processing by Api::SessionsController#show as JSON
 Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 1131)
 
 
+Started GET "/api/session" for ::1 at 2022-10-13 10:14:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 12.3ms | Allocations: 5159)
+
+
+Started GET "/login" for ::1 at 2022-10-13 10:14:43 -0400
+Processing by StaticPagesController#frontend_index as HTML
+  Parameters: {"path"=>"login"}
+  Rendering public/index.html
+  Rendered public/index.html (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 10ms (Views: 5.6ms | ActiveRecord: 0.0ms | Allocations: 2403)
+
+
+Started GET "/api/session" for ::1 at 2022-10-13 10:14:43 -0400
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13:in `current_user'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1310)
+
+
