@@ -50,6 +50,8 @@ function SignupForm() {
       setConfirmPasswordErrors("Type your password again");
     }
 
+    const handleInput = (e) => {};
+
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, name, password })).catch(
