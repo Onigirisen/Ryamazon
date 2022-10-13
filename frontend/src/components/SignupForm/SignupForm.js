@@ -12,11 +12,28 @@ function SignupForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [nameErrors, setNameErrors] = useState(false);
+  const [nameErrorsMessage, setNameErrorsMessage] = useState("");
+  const [passwordErrors, setPasswordErrors] = useState(false);
+  const [passwordErrorsMessage, setPasswordErrorsMessage] = useState("");
+  const [emailErrors, setEmailErrors] = useState(false);
+  const [emailErrorsMessage, setEmailErrorsMessage] = useState("");
+  const [confirmPasswordErrors, setConfirmPasswordErrors] = useState(false);
+  const [confirmPasswordErrorsMessage, setConfirmPasswordErrorsMessage] =
+    useState("");
 
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (name.length < 0) {
+      setNameErrors(true);
+      setNameErrorsMessage("Enter your name");
+    }
+    if (email.length < 0) {
+      setEmailErrors(true);
+      setEmailErrorsMessage("Enter your email");
+    }
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, name, password })).catch(
@@ -28,12 +45,17 @@ function SignupForm() {
           } catch {
             data = await res.text(); // Will hit this case if, e.g., server is down
           }
-          if (data?.errors) setErrors(data.errors);
-          else if (data) setErrors([data]);
-          else setErrors([res.statusText]);
+          if (data?.errors) {
+            setErrors(data.errors);
+          } else if (data) {
+            setErrors([data]);
+          } else {
+            setErrors([res.statusText]);
+          }
         }
       );
     }
+
     return setErrors([
       "Confirm Password field must be the same as the Password field",
     ]);

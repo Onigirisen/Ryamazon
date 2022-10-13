@@ -24,13 +24,17 @@ function LoginForm() {
         } catch {
           data = await res.text();
         }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
+        if (data?.errors) {
+          setErrors(data.errors);
+        } else if (data) {
+          setErrors([data]);
+        } else {
+          setErrors([res.statusText]);
+        }
       }
     );
   };
-  const handleClick = (e) => {
+  const handleDemoLogin = (e) => {
     e.preventDefault();
     setCredential("demo@user.io");
     setPassword("password");
@@ -41,7 +45,6 @@ function LoginForm() {
 
   return (
     <div className="login-container">
-      {console.log("HELLO")};{console.log(errors + "------------------")};
       <Link to="/">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
@@ -82,6 +85,7 @@ function LoginForm() {
               type="text"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
+              autoFocus
             />
           </label>
           <label>
@@ -96,7 +100,7 @@ function LoginForm() {
             Continue
           </button>
         </form>
-        <button className="demo-button" onClick={handleClick}>
+        <button className="demo-button" onClick={handleDemoLogin}>
           Demo User
         </button>
         <p>
