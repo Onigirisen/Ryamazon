@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
 import Navbar from "./components/Navbar";
 import SignupForm from "./components/SignupForm";
+import Splash from "./components/Splash";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
 
         <Route exact path="/">
           <Navbar />
+          <Splash />
         </Route>
       </Switch>
     </div>
