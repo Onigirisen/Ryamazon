@@ -273,6 +273,22 @@ function SignupForm() {
           </a>
           .
         </p>
+        <div className="divider-container"></div>
+        <div className="divider-links">
+          <h5>
+            Already have an account?{" "}
+            <Link to="/login">
+              Sign in <i className="fa-sharp fa-solid fa-caret-right"></i>
+            </Link>
+          </h5>
+          <h5>
+            Buying for work?{" "}
+            <Link to="#">
+              Create a free business account{" "}
+              <i className="fa-sharp fa-solid fa-caret-right"></i>
+            </Link>
+          </h5>
+        </div>
       </div>
     </div>
   );

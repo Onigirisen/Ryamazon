@@ -168,3 +168,9 @@
   word-wrap: break-word;
   font-size: 13px;
 }
+
+.login-form > form > label > input:focus {
+  outline: none !important;
+  border-color: (240, 193, 75);
+  box-shadow: 0 0 0 2px rgb(250, 153, 17);
+}
