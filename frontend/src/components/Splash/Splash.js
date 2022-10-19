@@ -1,16 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect, Link, useParams } from "react-router-dom";
+import ProductItem from "../ProductShow/";
+import {
+  getProducts,
+  fetchProducts,
+  fetchProductsByCategory,
+} from "../../store/product";
+import backGround from "../../assets/images/background.jpg";
 
 const Splash = () => {
+  const dispatch = useDispatch();
+  const { category } = useParams();
+  const products = useSelector(getProducts);
+  const productListItem = products.map((product) => (
+    <ProductItem key={product.id} product={product} />
+  ));
+
+  console.log(category);
+  useEffect(() => {
+    category
+      ? dispatch(fetchProductsByCategory(category))
+      : dispatch(fetchProducts());
+  }, [dispatch, category]);
+
+  const dummyDivs = [1, 2, 3, 4, 5, 6, 7].map((el) => (
+    <div className="hidden-product-placeholder" key={el}></div>
+  ));
   return (
     <div className="splash">
       <div className="splash-container">
-        <img
-          className="splash-background"
-          src="https://cdn.vox-cdn.com/thumbor/ux_50DxHp6vhXdmN3Zkn6idnmWw=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/67631115/jbareham_201012_0906_stock_amazon_prime_day.0.jpg"
-          alt=""
-        />
+        <img className="splash-background" src={backGround} alt="" />
+        <div className="splash-layout">
+          {productListItem}
+          {dummyDivs}
+        </div>
       </div>
     </div>
   );

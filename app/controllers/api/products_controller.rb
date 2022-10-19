@@ -1,11 +1,17 @@
 class Api::ProductsController < ApplicationController
     def index
-        @products = Product.all
+        p params
+        if params[:category] == nil
+            @products = Product.all
+        else
+            @products = Product.select(:id, :name, :description, :price, :category).where(category: params[:category])
+        end
+        render :index
     end
 
 
     def show
-        @Product = Products.find(params[:id])
+        @product = Product.find(params[:id])
         render :show
     end
 end

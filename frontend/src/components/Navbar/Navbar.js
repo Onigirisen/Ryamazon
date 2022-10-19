@@ -23,10 +23,10 @@ const Navbar = () => {
 
       <div className="search-bar">
         <div className="category-drop-down-container">
-          <div className="category-fascade-container">
+          {/* <div className="category-fascade-container">
             <span className="category-fascade">All</span>
             <i className="fa-sharp fa-solid fa-caret-down"></i>
-          </div>
+          </div> */}
           <select className="category-drop-down">
             <option value="all">All</option>
             <option value="best sellers">Best Sellers</option>
