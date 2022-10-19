@@ -89,6 +89,7 @@ select {
   border: 0px;
   font-size: 12px;
   color: #777;
+  cursor: pointer;
 }
 select:focus {
   outline: none;
@@ -203,6 +204,11 @@ select:focus {
   text-align: center;
   background-color: #ffd814;
   border-color: #fcd200;
+  cursor: pointer;
+}
+
+.add-cart-button:hover {
+  background-color: #fcd200;
 }
 
 .ordering-button-container {
@@ -216,6 +222,11 @@ select:focus {
   text-align: center;
   background-color: #ffa41c;
   border-color: #ff8f00;
+  cursor: pointer;
+}
+
+.buy-now-button:hover {
+  background-color: #ff8f00;
 }
 
 .secure-transaction {

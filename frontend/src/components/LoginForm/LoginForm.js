@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+import logoBlk from "../../assets/images/ry_blk.png";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -46,11 +47,7 @@ function LoginForm() {
   return (
     <div className="login-container">
       <Link to="/">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-          alt="login-logo"
-          className="login-logo"
-        />
+        <img src={logoBlk} alt="login-logo" className="login-logo" />
       </Link>
       {errors.length > 0 && (
         <div className="errors-container">

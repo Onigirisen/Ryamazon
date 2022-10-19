@@ -177,5 +177,16 @@ ApplicationRecord.transaction do
     file = URI.open('https://ryamazon-seed.s3.amazonaws.com/remarkably_bright_creatures.jpeg')
     book10.photo.attach(io: file, filename: 'remarkably_bright_creatures.jpeg')
 
+    electronics1 = Product.create(
+      {name: 'ASUS VP28UQG 28" 4K/UHD 3840x2160 1ms DP HDMI Adaptive Sync/FreeSync Eye Care Monitor',
+      description: '28 inches 4K/UHD (3840 x 2160) with 1ms response time and Adaptive Sync/AMD Free Sync for immersive, crisp visuals featuring Display Port and dual HDMI connectivity; Viewing Angle (CR≧10) : 170°(H)/160°(V). HDCP : Yes. ASUS Eye Care technology lowers blue light and eliminates flickering to reduce eyestrain and ailments. Display colors is 1073.7 M 10 bit and maximum contrast ratio is 1000 : 1. It can allow a Adaptive Sync/Free Sync supported graphics source to dynamically adjust display refresh rate based on typical content frame rates for power efficient, virtually stutter free and low latency display update.',
+      category: "electronics",
+      price: 254.99}
+    )
+
+    file = URI.open('https://ryamazon-seed.s3.amazonaws.com/asus_vp28uqg28.jpg')
+    electronics1.photo.attach(io: file, filename: 'asus_vp28uqg28.jpg')
+
+
     puts "Done!"
 end

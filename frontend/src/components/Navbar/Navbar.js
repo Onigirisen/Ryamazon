@@ -2,6 +2,7 @@ import shoppingCart from "../../assets/images/shopping-cart-icon.png";
 import { Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
+import logo from "../../assets/images/ry_white.png";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -14,11 +15,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <Link to="/">
-        <img
-          src="https://www.nicepng.com/png/detail/16-167642_amazon-logo-amazon-logo-white-text.png"
-          alt="logo"
-          className="logo"
-        />
+        <img src={logo} alt="logo" className="logo" />
       </Link>
 
       <div className="search-bar">
