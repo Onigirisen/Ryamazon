@@ -1,5 +1,3 @@
-# README
-
 # <a href="https://ryamazon.herokuapp.com/">Ryamazon</a>
 
 ## Background
