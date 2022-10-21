@@ -39,7 +39,7 @@ Technologies used to develop this app:
 
 Users are able to select quantity and add the item to cart as well remove items from the cart. Finally, users will be able to check out the items in the cart.
 
-![](frontend/src/assets/images/Screen Recording 2022-10-21 at 3.35.49 PM.gif)
+![](frontend/src/assets/images/empty-cart-background.png)
 
 ```javascript
 const Cart = () => {
@@ -130,7 +130,7 @@ end
 
 Users are able to filter the products by category by clicking on the buttons in the navbar.
 
-![](frontend/src/assets/images/Screen Recording 2022-10-21 at 2.52.40 PM.gif)
+![](frontend/src/assets/images/product-category-demo.gif)
 
 ## ToDos
 
