@@ -1,6 +1,6 @@
 class Api::ProductsController < ApplicationController
     def index
-        p params
+        @cart = []
         if params[:category] == nil
             @products = Product.all
         else

@@ -1,23 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Link, useParams } from "react-router-dom";
-import ProductItem from "../ProductShow/";
+import { useParams } from "react-router-dom";
+import ProductItem from "../ProductShow";
 import {
   getProducts,
   fetchProducts,
   fetchProductsByCategory,
 } from "../../store/product";
-import backGround from "../../assets/images/background.jpg";
 
-const Splash = () => {
+const ProductIndex = () => {
   const dispatch = useDispatch();
   const { category } = useParams();
-  const products = useSelector(getProducts);
-  const productListItem = products.map((product) => (
+  const allProducts = useSelector(getProducts);
+  const productListItem = allProducts.map((product) => (
     <ProductItem key={product.id} product={product} />
   ));
-
-  console.log(category);
   useEffect(() => {
     category
       ? dispatch(fetchProductsByCategory(category))
@@ -28,10 +25,9 @@ const Splash = () => {
     <div className="hidden-product-placeholder" key={el}></div>
   ));
   return (
-    <div className="splash">
-      <div className="splash-container">
-        <img className="splash-background" src={backGround} alt="" />
-        <div className="splash-layout">
+    <div className="product-index">
+      <div className="product-index-container">
+        <div className="product-index-layout">
           {productListItem}
           {dummyDivs}
         </div>
@@ -40,4 +36,4 @@ const Splash = () => {
   );
 };
 
-export default Splash;
+export default ProductIndex;

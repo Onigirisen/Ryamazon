@@ -48,7 +48,7 @@
 }
 .product-photo-container > img {
   width: 100%;
-  max-height: 290px;
+  height: 300px;
   object-fit: contain;
 }
 
@@ -279,4 +279,12 @@ select:focus {
 .returnable-date {
   font-size: 14px;
   color: #007185;
+}
+
+.tomorrow-shipping {
+  marin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  color: #0000009a;
+  font-size: 12px;
 }

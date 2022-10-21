@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import gitHubFilled from "../../assets/images/github-filled.png";
+import linkedInFilled from "../../assets/images/linkedin-filled.png";
 const CategoryNav = () => {
   return (
     <div className="category-navbar">
       <div className="category-nav-container">
-        <Link>
+        <Link to="/products">
           <div className="nav-link">
             <span className="nav-link-bottom-line">
               {" "}
@@ -21,7 +23,7 @@ const CategoryNav = () => {
             <span className="nav-link-bottom-line"> Electronics </span>
           </div>
         </Link>
-        <Link to="computers">
+        <Link to="/computers">
           <div className="nav-link">
             <span className="nav-link-bottom-line"> Computers </span>
           </div>
@@ -36,14 +38,24 @@ const CategoryNav = () => {
             <span className="nav-link-bottom-line"> Beauty & Health </span>
           </div>
         </Link>
-        <Link to="toyskidsbaby">
+        <Link to="/toyskidsbaby">
           <div className="nav-link">
             <span className="nav-link-bottom-line"> Toys, Kids & Baby </span>
           </div>
         </Link>
-        <Link to="sports">
+        <Link to="/sports">
           <div className="nav-link">
             <span className="nav-link-bottom-line"> Sports </span>
+          </div>
+        </Link>
+        <Link to="https://github.com/Onigirisen">
+          <div className="nav-link">
+            <img src={gitHubFilled} />
+          </div>
+        </Link>
+        <Link to="linkedin.com/in/ryan-kok-6ab427b6">
+          <div className="nav-link">
+            <img src={linkedInFilled} />
           </div>
         </Link>
       </div>

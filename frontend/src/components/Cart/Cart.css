@@ -1,0 +1,256 @@
+.cart-items {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(234, 237, 237);
+}
+
+.cart-items-container {
+  width: 100%;
+  margin: 30px;
+  padding: 15px;
+  background-color: white;
+}
+
+.item-in-cart-photo {
+  height: 180px;
+  width: 180px;
+  object-fit: contain;
+}
+
+.cart-item-name > a {
+  word-wrap: break-word;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+.cart-item-category {
+  font-size: 12px;
+  margin: 3px;
+  margin-left: 0px;
+}
+
+.department {
+  margin-right: 3px;
+  font-weight: 500;
+}
+
+.cart-item-instock {
+  font-size: 12px;
+  color: #007600;
+  margin: 3px;
+  margin-left: 0px;
+}
+
+.free-shipping {
+  color: #565959;
+  font-size: 12px;
+}
+
+.and-symbol {
+  font-size: 14px;
+}
+
+.free-returns {
+  color: #007185;
+  font-size: 14px;
+}
+
+.qty-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-quantity {
+  font-size: 13px;
+  align-items: center;
+  width: 50px;
+  height: 15px;
+  padding: 5px;
+  border-color: rgb(169, 169, 169);
+  border-radius: 7px;
+  background: rgb(223, 222, 222);
+  margin-right: 5px;
+}
+
+.cart-item-delete-container {
+  border-left: 1px solid #cdcccc;
+  border-right: 1px solid #cdcccc;
+}
+
+.cart-item-delete-button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  color: #007185;
+  cursor: pointer;
+}
+
+.cart-items-top {
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.price-row {
+  font-size: 14px;
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  color: #565959;
+}
+.cart hr {
+  height: 1px;
+  background-color: #cdcccc;
+  border: none;
+}
+
+.item-in-cart {
+  display: flex;
+  width: 100%;
+}
+
+.cart-item-price {
+  display: flex;
+}
+
+.bottom-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-items-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cart-item-price {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 18px;
+  font-weight: 550;
+}
+
+.check-out-items-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 400px;
+  height: 220px;
+  align-items: center;
+  margin-right: 30px;
+  padding: 15px;
+  background-color: white;
+}
+
+.checkout-price-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.check-out-small-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.check-out-items-subtotal-text {
+  font-size: 18px;
+}
+
+.check-out-items-subtotal-number {
+  font-size: 18px;
+  font-weight: 550;
+}
+
+.check-out-button-container {
+  width: 100%;
+}
+
+.check-out-button {
+  width: 100%;
+  height: 28px;
+  border-radius: 9px;
+  border-width: 1px;
+  text-align: center;
+  background-color: #ffd814;
+  border-color: #fcd200;
+  cursor: pointer;
+}
+
+.check-out-button:hover {
+  background-color: #fcd200;
+}
+
+.cart-items-subtotal {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.img-span-container {
+  align-items: center;
+}
+
+.subtotal-text {
+  font-size: 18px;
+  margin-right: 3px;
+}
+
+.subtotal-number {
+  font-size: 18px;
+  font-weight: 550;
+}
+
+.verified-img {
+  height: 20px;
+  width: 20px;
+}
+
+.qualified-text {
+  color: #067d62;
+  font-size: 12px;
+  padding: 2px;
+}
+
+.choose-option-text {
+  color: #565959;
+  font-size: 12px;
+}
+
+.empty-cart-message {
+  margin: 20% 50%;
+  position: absolute;
+  height: 100px;
+  width: 400px;
+  background: #fff;
+  border: 1px solid gray;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.continue-shopping {
+  height: 28px;
+  border-radius: 9px;
+  border-width: 1px;
+  text-align: center;
+  background-color: #ffd814;
+  border-color: #fcd200;
+  cursor: pointer;
+}
+
+.continue-shopping:hover {
+  background-color: #fcd200;
+}
+
+.empty-cart-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

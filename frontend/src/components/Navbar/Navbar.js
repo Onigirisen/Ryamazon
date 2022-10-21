@@ -1,8 +1,9 @@
-import shoppingCart from "../../assets/images/shopping-cart-icon.png";
+import shoppingCart from "../../assets/images/shopping-cart-2.png";
 import { Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import logo from "../../assets/images/ry_white.png";
+import ShoppingCart from "../ShoppingCart";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -18,24 +19,24 @@ const Navbar = () => {
         <img src={logo} alt="logo" className="logo" />
       </Link>
 
-      <div className="search-bar">
+      <form className="search-bar">
         <div className="category-drop-down-container">
-          {/* <div className="category-fascade-container">
-            <span className="category-fascade">All</span>
-            <i className="fa-sharp fa-solid fa-caret-down"></i>
-          </div> */}
           <select className="category-drop-down">
             <option value="all">All</option>
             <option value="best sellers">Best Sellers</option>
           </select>
         </div>
-        <input type="text" className="search-bar-input" />
+        <input
+          type="text"
+          className="search-bar-input"
+          placeholder="Search feature coming soon.."
+        />
         <div className="search-bar-button-container">
           <button type="submit" className="search-bar-button">
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
-      </div>
+      </form>
 
       <div className="nav-links-container"></div>
       {sessionUser && (
@@ -62,17 +63,9 @@ const Navbar = () => {
         <span className="nav-link-top-line">Your </span>
         <span className="nav-link-bottom-line">Prime</span>
       </div>
-
-      <div className="nav-shopping-cart">
-        <img
-          src={shoppingCart}
-          alt="shopping-cart-icon"
-          className="shopping-cart-icon"
-        />
-        <span className="nav-link-bottom-line nav-shopping-cart-counter">
-          0
-        </span>
-      </div>
+      <Link to="/cart">
+        <ShoppingCart />
+      </Link>
     </div>
   );
 };

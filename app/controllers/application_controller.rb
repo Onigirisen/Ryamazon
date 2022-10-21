@@ -7,6 +7,7 @@ class ApplicationController < ActionController::API
     
     protect_from_forgery with: :exception
     before_action :snake_case_params, :attach_authenticity_token
+    helper_method :current_user, :logged_in?
   
   
     def current_user
@@ -15,6 +16,10 @@ class ApplicationController < ActionController::API
   
     def login!(user)
       session[:session_token] = user.reset_session_token!
+    end
+
+    def logged_in?
+      !!current_user
     end
   
     def logout!

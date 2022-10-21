@@ -14,6 +14,10 @@ const ProductItem = ({ product: { id, name, price, photoURL } }) => {
           {/* <div className="product-rating">
 
 </div> */}
+          <div className="tomorrow-shipping">
+            <span className="shipping-text">Get it as soon as Tomorrow</span>
+            <span className="shipping-text">FREE Shipping by Ryamazon</span>
+          </div>
         </div>
       </Link>
     </div>

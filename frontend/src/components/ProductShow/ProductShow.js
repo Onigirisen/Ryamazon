@@ -1,14 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { fetchCart } from "../../store/cart";
 import { fetchProduct, getProduct } from "../../store/product";
+import { addItemToCart } from "../../store/cart";
 
 const ProductShow = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const [qty, setQty] = useState(1);
   const { productId } = useParams();
+  const userId = useSelector((state) => state.session.user?.id);
   const product = useSelector(getProduct(productId)) || {};
-  console.log(product);
-  console.log(productId);
 
   useEffect(() => {
     if (productId) dispatch(fetchProduct(productId));
@@ -40,6 +43,16 @@ const ProductShow = () => {
     return deliveryDate.toDateString().slice(0, 10);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (userId) {
+      dispatch(addItemToCart(userId, productId, qty));
+    } else {
+      history.push("/login");
+    }
+    setQty(1);
+  };
+
   return (
     <div className="product-show-container">
       <div className="product-photo-container">
@@ -47,7 +60,7 @@ const ProductShow = () => {
       </div>
       <div className="product-mid-section">
         <h1>{product.name}</h1>
-        {/* <hr /> */}
+        <hr />
         <div className="product-price-container">
           <div className="product-price-name">Price:</div>
           <div className="product-price">${product.price}</div>
@@ -75,11 +88,15 @@ const ProductShow = () => {
           </div>
           <div className="in-stock">In Stock.</div>
           <div className="product-order-form">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="select-wrap">
                 <label>
                   Qty:
-                  <select className="qty">
+                  <select
+                    className="qty"
+                    value={qty}
+                    onChange={(e) => setQty(e.target.value)}
+                  >
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
