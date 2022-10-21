@@ -39,7 +39,7 @@ Technologies used to develop this app:
 
 Users are able to select quantity and add the item to cart as well remove items from the cart. Finally, users will be able to check out the items in the cart.
 
-![](frontend/src/assets/images/empty-cart-background.png)
+![](frontend/src/assets/images/add-and-checkout-product-demo.gif)
 
 ```javascript
 const Cart = () => {
