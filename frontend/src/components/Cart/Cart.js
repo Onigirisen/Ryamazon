@@ -1,7 +1,7 @@
 import emptyCartBackground from "../../assets/images/empty-cart-background.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   addItemToCart,
   removeAllItemsFromCart,
@@ -14,6 +14,7 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const userId = useSelector((state) => state.session.user?.id);
   const [subTotal, setSubtotal] = useState(0.0);
+  const history = useHistory();
   useEffect(() => {
     calculateSubtotal();
   });
@@ -30,6 +31,7 @@ const Cart = () => {
   const handleClick = (e) => {
     e.preventDefault();
     dispatch(removeAllItemsFromCart(userId));
+    history.push("/cart/checkout");
   };
 
   return (
@@ -156,11 +158,9 @@ const Cart = () => {
               <div className="check-out-items-subtotal-number">${subTotal}</div>
             </div>
             <div className="check-out-button-container">
-              <Link to="/cart/checkout">
-                <button className="check-out-button" onClick={handleClick}>
-                  Proceed to Checkout
-                </button>
-              </Link>
+              <button className="check-out-button" onClick={handleClick}>
+                Proceed to Checkout
+              </button>
             </div>
           </div>
         </div>
