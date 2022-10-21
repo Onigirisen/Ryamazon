@@ -330,8 +330,8 @@ ApplicationRecord.transaction do
       price: 2747.55}
     )
 
-    file = URI.open('https://ryamazon-seed.s3.amazonaws.com/ibuypower-progaming-pc-slatemr.jpg')
-    computers3.photo.attach(io: file, filename: 'ibuypower-progaming-pc-slatemr.jpg')
+    file = URI.open('https://ryamazon-seed.s3.amazonaws.com/alienware-aurora-r14.jpg')
+    computers3.photo.attach(io: file, filename: 'alienware-aurora-r14.jpg')
 
     computers4= Product.create(
       {name: 'Apple iMac 21.5in 2.7GHz Core i5 (ME086LL/A) All In One Desktop, 8GB Memory, 1TB Hard Drive, Mac OS X Mountain Lion (Renewed)',
