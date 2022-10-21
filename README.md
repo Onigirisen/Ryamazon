@@ -37,14 +37,105 @@ Technologies used to develop this app:
 
 ## Techinical Implementation Details
 
+Users are able to select quantity and add the item to cart as well remove items from the cart. Finally, users will be able to check out the items in the cart.
+
+![](frontend/src/assets/images/Screen Recording 2022-10-21 at 3.35.49 PM.gif)
+
+```javascript
+const Cart = () => {
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const userId = useSelector((state) => state.session.user?.id);
+  const [subTotal, setSubtotal] = useState(0.0);
+  const history = useHistory();
+  useEffect(() => {
+    calculateSubtotal();
+  });
+
+  const calculateSubtotal = () => {
+    let sum = 0;
+    cart.forEach((cartItem) => {
+      sum += cartItem.quantity * cartItem.price;
+    });
+
+    setSubtotal(Math.round(sum * 100) / 100);
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(removeAllItemsFromCart(userId));
+    history.push("/cart/checkout");
+  };
+
+export const removeAllItemsFromCart = (user_id) => async (dispatch) => {
+  const res = await csrfFetch("/api/destroy_cart_items/", {
+    method: "DELETE",
+    body: JSON.stringify({ user_id }),
+    headers: {
+      "content-type": "application/json",
+    },
+  });
+  const data = await res.json();
+  dispatch(receiveCart(data));
+};
+```
+
+```ruby
+def destroy_cart_items
+        @user = User.find(params[:user_id])
+        @cart = Cart.where(user_id: params[:user_id]).destroy_all
+        render :show
+end
+```
+
+The above code make it possible to grab the slice of the cart state from the store utilizing the useSelector and on clicking the check out button, a request of removeAllItemsFromCart will be made to the backend to a custom route calling on the destroy_cart_items which will return a response of removing all items from the cart thus clearing the quanity of items in the cart back to zero.
+
+The below code refers to the carts page where when the delete button is clicked will make a request to the backend via removeItemFromCart making a request to the rails api controller calling the function destroy to destroy the item relationship with the user's cart.
+
+```javascript
+<button
+  className="cart-item-delete-button"
+  onClick={(e) => {
+    {
+      dispatch(removeItemFromCart(userId, cartItem.id));
+    }
+  }}
+>
+  Delete
+</button>;
+
+export const removeItemFromCart = (user_id, product_id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/carts/${user_id}`, {
+    method: "DELETE",
+    body: JSON.stringify({ product_id }),
+    headers: {
+      "content-type": "application/json",
+    },
+  });
+
+  const data = await res.json();
+  dispatch(receiveCart(data));
+};
+```
+
+```ruby
+def destroy
+        @user = User.find(params[:id])
+        @cart = Cart.find_by(user_id: params[:id], product_id: params[:product_id])
+
+        @cart.destroy
+        render :show
+end
+```
+
+Users are able to filter the products by category by clicking on the buttons in the navbar.
+
+![](frontend/src/assets/images/Screen Recording 2022-10-21 at 2.52.40 PM.gif)
+
 ## ToDos
 
-The game is still at it's barebones state. The features to make this a playable game still need to be implemented.
-
-- Creating the curoser arrow for the play to be able to shoot towards a direction.
-- Creating the random balls to act as projectiles for the player to shoot.
-- Implementing collision logic to the balls to detect when the ball shot hits a wall to redirect direction and the grid to detect whether a ball has hit.
-- Implementing the neigboring color detection logic to determine whether a cluster of like colors have been hit/whether to keep the clust active or destroy the cluster depending on how many balls of like colors are on the cluster.
+- Cleaning up styling of the different pages to make sure there are no flaws seen.
+- Finishing up additional functionality to make sure no dead buttons and/or links remain.
 
 ## Future Features
 

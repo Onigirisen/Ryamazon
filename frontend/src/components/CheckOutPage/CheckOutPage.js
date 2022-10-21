@@ -18,7 +18,7 @@ const CheckOutPage = () => {
                 <img src={gitHub} alt="" />
               </Link>
             </div>
-            <Link to="linkedin.com/in/ryan-kok-6ab427b6">
+            <Link to="https://linkedin.com/in/ryan-kok-6ab427b6">
               <img src={linkedIn} alt="" />
             </Link>
           </div>
