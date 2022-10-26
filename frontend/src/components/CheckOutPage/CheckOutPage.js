@@ -1,7 +1,7 @@
 import confirm from "../../assets/images/ok-hand.png";
 import gitHub from "../../assets/images/github.png";
 import linkedIn from "../../assets/images/linkedin.png";
-import { Link } from "react-router-dom";
+
 const CheckOutPage = () => {
   return (
     <div className="checkout-page">
@@ -14,13 +14,13 @@ const CheckOutPage = () => {
           wares.
           <div className="checkout-icons">
             <div>
-              <Link to="https://github.com/Onigirisen">
+              <a href="https://github.com/Onigirisen" target="_blank">
                 <img src={gitHub} alt="" />
-              </Link>
+              </a>
             </div>
-            <Link to="https://linkedin.com/in/ryan-kok-6ab427b6">
+            <a href="https://linkedin.com/in/ryan-kok-6ab427b6" target="_blank">
               <img src={linkedIn} alt="" />
-            </Link>
+            </a>
           </div>
         </div>
       </div>

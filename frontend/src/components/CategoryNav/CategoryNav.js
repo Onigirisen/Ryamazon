@@ -48,16 +48,16 @@ const CategoryNav = () => {
             <span className="nav-link-bottom-line"> Sports </span>
           </div>
         </Link>
-        <Link to="https://github.com/Onigirisen">
+        <a href="https://github.com/Onigirisen" target="_blank">
           <div className="nav-link">
             <img src={gitHubFilled} />
           </div>
-        </Link>
-        <Link to="linkedin.com/in/ryan-kok-6ab427b6">
+        </a>
+        <a href="linkedin.com/in/ryan-kok-6ab427b6" target="_blank">
           <div className="nav-link">
             <img src={linkedInFilled} />
           </div>
-        </Link>
+        </a>
       </div>
     </div>
   );
