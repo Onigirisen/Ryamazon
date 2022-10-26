@@ -53,7 +53,7 @@ const CategoryNav = () => {
             <img src={gitHubFilled} />
           </div>
         </a>
-        <a href="linkedin.com/in/ryan-kok-6ab427b6" target="_blank">
+        <a href="https://linkedin.com/in/ryan-kok-6ab427b6" target="_blank">
           <div className="nav-link">
             <img src={linkedInFilled} />
           </div>
