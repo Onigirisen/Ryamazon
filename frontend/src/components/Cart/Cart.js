@@ -109,11 +109,9 @@ const Cart = () => {
                             <button
                               className="cart-item-delete-button"
                               onClick={(e) => {
-                                {
-                                  dispatch(
-                                    removeItemFromCart(userId, cartItem.id)
-                                  );
-                                }
+                                dispatch(
+                                  removeItemFromCart(userId, cartItem.id)
+                                );
                               }}
                             >
                               Delete
