@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { fetchCart } from "../../store/cart";
 import { fetchProduct, getProduct } from "../../store/product";
 import { addItemToCart } from "../../store/cart";
+import { Link } from "react-router-dom";
 
 const ProductShow = () => {
   const dispatch = useDispatch();
@@ -120,7 +121,9 @@ const ProductShow = () => {
             </form>
           </div>
           <div className="ordering-button-container">
-            <button className="buy-now-button">Buy Now</button>
+            <Link to="/cart/checkout">
+              <button className="buy-now-button">Buy Now</button>
+            </Link>
           </div>
           <div className="secure-transaction">
             <i className="fa-solid fa-lock"></i>
