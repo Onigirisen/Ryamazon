@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import shoppingCart from "../../assets/images/shopping-cart-2.png";
 import { clearCart, fetchCart } from "../../store/cart";
 

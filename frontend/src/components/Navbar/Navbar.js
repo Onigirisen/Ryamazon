@@ -1,4 +1,4 @@
-import shoppingCart from "../../assets/images/shopping-cart-2.png";
+// import shoppingCart from "../../assets/images/shopping-cart-2.png";
 import { Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
