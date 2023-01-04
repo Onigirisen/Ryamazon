@@ -15,8 +15,8 @@ const ShoppingCart = () => {
     } else {
       dispatch(clearCart());
     }
-    console.log(cart);
-  }, [userId]);
+    // console.log(cart);
+  }, [userId, dispatch]);
 
   const cartCounter = (cart) => {
     let cartSum = 0;

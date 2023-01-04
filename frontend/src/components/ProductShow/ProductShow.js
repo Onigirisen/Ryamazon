@@ -16,7 +16,7 @@ const ProductShow = () => {
 
   useEffect(() => {
     if (productId) dispatch(fetchProduct(productId));
-  }, [productId]);
+  }, [productId, dispatch]);
 
   const freeDeliveryDate = () => {
     const deliveryDate = new Date();
