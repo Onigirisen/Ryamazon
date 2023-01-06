@@ -17,4 +17,12 @@ class Product < ApplicationRecord
     has_one_attached :photo
     has_many :carts
     has_many :reviews
+
+    def count_of_reviews
+        reviews.count(:rating)
+    end
+
+    def average_rating
+        reviews.average(:rating)
+    end
 end
