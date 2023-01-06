@@ -1,7 +1,5 @@
 class Api::CartsController < ApplicationController
     def create
-        p params
-        p cart_params
         @cart = Cart.find_by(user_id: cart_params[:user_id], product_id: cart_params[:product_id])
         if @cart
             @cart = Cart.update(@cart.id, quantity: cart_params[:quantity].to_i + @cart.quantity)
