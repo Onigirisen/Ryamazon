@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import {
-  addItemToCart,
+  // addItemToCart,
   removeAllItemsFromCart,
   removeItemFromCart,
 } from "../../store/cart";
