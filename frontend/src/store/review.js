@@ -16,3 +16,13 @@ export const removeReview = (reviewId) => ({
   type: REMOVE_REVIEW,
   reviewId,
 });
+
+export const getReviews = ({ reviews }) => {
+  return reviews ? Object.values(reviews) : [];
+};
+
+export const getReview =
+  (reviewId) =>
+  ({ reviews }) => {
+    return reviews ? reviews[reviewId] : null;
+  };
