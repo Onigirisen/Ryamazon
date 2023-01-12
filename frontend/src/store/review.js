@@ -26,3 +26,15 @@ export const getReview =
   ({ reviews }) => {
     return reviews ? reviews[reviewId] : null;
   };
+
+export const fetchReviews = () => async (dispatch) => {
+  const res = await fetch("/api/reviewss");
+  const data = await res.json();
+  dispatch(receiveReviews(data));
+};
+
+export const fetchReview = (reviewId) => async (dispatch) => {
+  const res = await fetch(`/api/reviews/${reviewId}`);
+  const data = await res.json();
+  dispatch(receiveReview(data));
+};
