@@ -38,3 +38,19 @@ export const fetchReview = (reviewId) => async (dispatch) => {
   const data = await res.json();
   dispatch(receiveReview(data));
 };
+
+const reviewsReducer = (state = {}, action) => {
+  Object.freeze(state);
+  const newState = { ...state };
+  switch (action.type) {
+    case RECEIVE_REVIEWS:
+      return action.reviews;
+    case RECIEVE_REVIEW:
+      newState[action.review.id] = action.review;
+      return newState;
+    default:
+      return state;
+  }
+};
+
+export default reviewsReducer;
