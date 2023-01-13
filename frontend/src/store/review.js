@@ -40,8 +40,8 @@ export const fetchReview = (reviewId) => async (dispatch) => {
   dispatch(receiveReview(data));
 };
 
-export const createReview = (productId, review) => async (dispatch) => {
-  const res = await fetch(`/api/reviews/${productId}`, {
+export const createReview = (review) => async (dispatch) => {
+  const res = await fetch(`/api/reviews/`, {
     method: "POST",
     body: JSON.stringify(review),
     headers: {
