@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 // import { fetchCart } from "../../store/cart";
 import { fetchProduct, getProduct } from "../../store/product";
+import { fetchReviews, getReviews } from "../../store/review";
 import { addItemToCart } from "../../store/cart";
 import { Link } from "react-router-dom";
 
@@ -13,6 +14,7 @@ const ProductShow = () => {
   const { productId } = useParams();
   const userId = useSelector((state) => state.session.user?.id);
   const product = useSelector(getProduct(productId)) || {};
+  const reviews = useSelector(getReviews()) || {};
 
   useEffect(() => {
     if (productId) dispatch(fetchProduct(productId));
