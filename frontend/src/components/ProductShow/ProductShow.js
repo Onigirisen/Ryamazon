@@ -114,11 +114,13 @@ const ProductShow = () => {
                 </label>
               </div>
               <div className="ordering-button-container">
-                <input
-                  type="submit"
-                  className="add-cart-button"
-                  value="Add to Cart"
-                />
+                <Link to="/cart">
+                  <input
+                    type="submit"
+                    className="add-cart-button"
+                    value="Add to Cart"
+                  />
+                </Link>
               </div>
             </form>
           </div>
