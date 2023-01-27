@@ -1,6 +1,7 @@
 import confirm from "../../assets/images/ok-hand.png";
 import gitHub from "../../assets/images/github.png";
 import linkedIn from "../../assets/images/linkedin.png";
+import { Link } from "react-router-dom";
 
 const CheckOutPage = () => {
   return (
@@ -10,8 +11,8 @@ const CheckOutPage = () => {
           <img src={confirm} alt="" /> Thank you, your order has been placed
         </div>
         <div className="order-message">
-          While waiting for your order, please feel free to browse my other
-          wares.
+          <Link to="/">Click Here</Link> to return to the homepage. Please feel
+          free to browse other wares below.
           <div className="checkout-icons">
             <div>
               <a href="https://github.com/Onigirisen" target="_blank">
