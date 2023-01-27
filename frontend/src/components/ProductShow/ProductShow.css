@@ -73,7 +73,7 @@
   border-radius: 4px;
   margin-bottom: 10px;
   padding: 0 5px;
-  background-color: lightgray;
+  background-color: #f0f0f0;
   width: 53px;
 }
 
@@ -85,7 +85,7 @@
 }
 
 select {
-  background-color: lightgray;
+  background-color: #f0f0f0;
   border: 0px;
   font-size: 12px;
   color: #777;
