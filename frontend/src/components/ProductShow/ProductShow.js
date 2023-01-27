@@ -14,7 +14,7 @@ const ProductShow = () => {
   const { productId } = useParams();
   const userId = useSelector((state) => state.session.user?.id);
   const product = useSelector(getProduct(productId)) || {};
-  const reviews = useSelector(getReviews()) || {};
+  // const reviews = useSelector(getReviews()) || {};
 
   useEffect(() => {
     if (productId) dispatch(fetchProduct(productId));
