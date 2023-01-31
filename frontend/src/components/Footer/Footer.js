@@ -11,10 +11,22 @@ const Footer = () => {
             <h5>About Us</h5>
             <ul>
               <li>
-                <a href="https://onigirisen.github.io/">Company Information</a>
+                <a
+                  href="https://onigirisen.github.io/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Company Information
+                </a>
               </li>
               <li>
-                <a href="mailto:ryanroykok@gmail.com">Contact Us</a>
+                <a
+                  href="mailto:ryanroykok@gmail.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Contact Us
+                </a>
               </li>
             </ul>
           </div>
@@ -22,17 +34,29 @@ const Footer = () => {
             <h5>Follow Us</h5>
             <ul className="social-media">
               <li>
-                <a href="https://www.linkedin.com/in/ryan-kok-6ab427b6/">
+                <a
+                  href="https://www.linkedin.com/in/ryan-kok-6ab427b6/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i class="fa-brands fa-linkedin"></i>
                 </a>
               </li>
               <li>
-                <a href="https://github.com/Onigirisen">
+                <a
+                  href="https://github.com/Onigirisen"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i class="fa-brands fa-github"></i>
                 </a>
               </li>
               <li>
-                <a href="https://angel.co/u/ryan-kok">
+                <a
+                  href="https://angel.co/u/ryan-kok"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i class="fa-brands fa-angellist"></i>
                 </a>
               </li>
