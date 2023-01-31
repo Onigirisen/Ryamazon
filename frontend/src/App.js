@@ -25,27 +25,32 @@ function App() {
           <Navbar />
           <CategoryNav />
           <Cart />
+          <Footer />
         </Route>
         <Route exact path="/cart/checkout">
           <Navbar />
           <CategoryNav />
           <CheckOutPage />
+          <Footer />
         </Route>
         <Route exact path="/products">
           <Navbar />
           <CategoryNav />
           <ProductIndex />
+          <Footer />
         </Route>
         <Route exact path="/products/:productId">
           <Navbar />
           <CategoryNav />
           <ProductShow />
+          <Footer />
         </Route>
 
         <Route exact path="/:category">
           <Navbar />
           <CategoryNav />
           <ProductIndex />
+          <Footer />
         </Route>
 
         <Route exact path="/">
