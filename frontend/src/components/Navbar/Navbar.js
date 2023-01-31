@@ -48,7 +48,7 @@ const Navbar = () => {
         </Link>
       )}
       {!sessionUser && (
-        <Link to="/login">
+        <Link to="/login" className="nav-link-a">
           <div className="nav-link">
             <span className="nav-link-top-line">Hello Guest</span>
             <span className="nav-link-bottom-line">Sign In</span>

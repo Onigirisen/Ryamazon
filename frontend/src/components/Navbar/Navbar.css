@@ -113,11 +113,13 @@
 
 .nav-link-top-line {
   font-size: 12px;
+  text-decoration: none;
 }
 
 .nav-link-bottom-line {
   font-size: 14px;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .nav-shopping-cart {
@@ -130,4 +132,8 @@
   width: 60px;
   height: 42px;
   object-fit: contain;
+}
+
+.nav-link-a {
+  text-decoration: none;
 }
