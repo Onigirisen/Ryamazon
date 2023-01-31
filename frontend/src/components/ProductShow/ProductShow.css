@@ -12,7 +12,7 @@
 }
 
 .product-information > img {
-  max-height: 300px;
+  max-height: 230px;
   width: 100%;
   object-fit: contain;
   margin-bottom: 15px;

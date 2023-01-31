@@ -17,11 +17,9 @@ function App() {
       <Switch>
         <Route exact path="/login">
           <LoginForm />
-          {/* <LoginFooter /> */}
         </Route>
         <Route exact path="/signup">
           <SignupForm />
-          {/* <LoginFooter /> */}
         </Route>
         <Route exact path="/cart">
           <Navbar />

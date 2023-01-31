@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: white;
 }
 
@@ -173,4 +173,9 @@
   outline: none !important;
   border-color: (240, 193, 75);
   box-shadow: 0 0 0 2px rgb(250, 153, 17);
+}
+
+.login-wrapper {
+  position: relative;
+  height: 60vh;
 }

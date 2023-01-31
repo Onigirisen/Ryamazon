@@ -4,6 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import logoBlk from "../../assets/images/ry_blk.png";
+import LoginFooter from "../LoginFooter";
 
 function SignupForm() {
   const dispatch = useDispatch();
@@ -100,193 +101,197 @@ function SignupForm() {
   };
 
   return (
-    <div className="signup-container">
-      <Link to="/">
-        <img src={logoBlk} alt="login-logo" className="login-logo" />
-      </Link>
-      {errors.length > 0 && (
-        <div className="errors-container">
-          <div style={{ flex: "10%", width: "63px" }}>
-            <div
-              className="svgcontainer"
-              style={{ marginLeft: "auto", width: "35px", marginTop: "5px" }}
-            >
-              <WarningAmberIcon fontSize="large" />
+    <div className="login-wrapper">
+      <div className="signup-container">
+        <Link to="/">
+          <img src={logoBlk} alt="login-logo" className="login-logo" />
+        </Link>
+        {errors.length > 0 && (
+          <div className="errors-container">
+            <div style={{ flex: "10%", width: "63px" }}>
+              <div
+                className="svgcontainer"
+                style={{ marginLeft: "auto", width: "35px", marginTop: "5px" }}
+              >
+                <WarningAmberIcon fontSize="large" />
+              </div>
+            </div>
+            <div className="errors-message-box">
+              <div className="svgcontainer" style={{ display: "flex" }}>
+                <h4 style={{ color: "#c40000" }}>There was a problem</h4>
+              </div>
+              <div className="error-messages">
+                <ul>
+                  {errors.map((error) => (
+                    <li key={error}>{error}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-          <div className="errors-message-box">
-            <div className="svgcontainer" style={{ display: "flex" }}>
-              <h4 style={{ color: "#c40000" }}>There was a problem</h4>
-            </div>
-            <div className="error-messages">
-              <ul>
-                {errors.map((error) => (
-                  <li key={error}>{error}</li>
-                ))}
-              </ul>
-            </div>
+        )}
+        <div className="signup-form">
+          <h1>Create account</h1>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Your Name
+              {nameErrors && (
+                <input
+                  autoFocus
+                  type="text"
+                  name="name"
+                  placeholder="First and last name"
+                  value={name}
+                  onChange={handleOnChange}
+                />
+              )}
+              {nameErrors && (
+                <div className="input-field-error-message-container">
+                  <span className="input-field-error-message">
+                    {nameErrorsMessage}
+                  </span>
+                </div>
+              )}
+              {!nameErrors && (
+                <input
+                  className={validInput}
+                  autoFocus
+                  type="text"
+                  name="name"
+                  placeholder="First and last name"
+                  value={name}
+                  onChange={handleOnChange}
+                />
+              )}
+            </label>
+            <label>
+              Email
+              {emailErrors && (
+                <input
+                  autoFocus
+                  type="text"
+                  name="email"
+                  value={email}
+                  onChange={handleOnChange}
+                />
+              )}
+              {emailErrors && (
+                <div className="input-field-error-message-container">
+                  <span className="input-field-error-message">
+                    {emailErrorsMessage}
+                  </span>
+                </div>
+              )}
+              {!emailErrors && (
+                <input
+                  className="valid-input-field"
+                  type="text"
+                  name="email"
+                  value={email}
+                  onChange={handleOnChange}
+                />
+              )}
+            </label>
+            <label>
+              Password
+              {passwordErrors && (
+                <input
+                  autoFocus
+                  type="password"
+                  name="password"
+                  placeholder="At least 6 characters"
+                  value={password}
+                  onChange={handleOnChange}
+                />
+              )}
+              {passwordErrors && (
+                <div className="input-field-error-message-container">
+                  <span className="input-field-error-message">
+                    {passwordErrorsMessage}
+                  </span>
+                </div>
+              )}
+              {!passwordErrors && (
+                <input
+                  className="valid-input-field"
+                  type="password"
+                  name="password"
+                  placeholder="At least 6 characters"
+                  value={password}
+                  onChange={handleOnChange}
+                />
+              )}
+              {!passwordErrors && (
+                <div className="input-field-require-message-container">
+                  <span className="password-requirement">
+                    Passwords must be at least 6 characters
+                  </span>
+                </div>
+              )}
+            </label>
+            <label>
+              Re-enter Password
+              {confirmPasswordErrors && (
+                <input
+                  autoFocus
+                  type="password"
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={handleOnChange}
+                />
+              )}
+              {confirmPasswordErrors && (
+                <div className="input-field-error-message-container">
+                  <span className="input-field-error-message">
+                    {confirmPasswordErrorsMessage}
+                  </span>
+                </div>
+              )}
+              {!confirmPasswordErrors && (
+                <input
+                  className="valid-input-field"
+                  type="password"
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={handleOnChange}
+                />
+              )}
+            </label>
+            <button className="signup-button" type="submit">
+              Continue
+            </button>
+          </form>
+          <p>
+            By creating an account, you agree to Ryamazon's{" "}
+            <a style={{ textDecoration: "none", color: "#0066c0" }} href="">
+              Conditions of Use
+            </a>{" "}
+            and{" "}
+            <a style={{ textDecoration: "none", color: "#0066c0" }} href="">
+              Privacy Notice
+            </a>
+            .
+          </p>
+          <div className="divider-container"></div>
+          <div className="divider-links">
+            <h5>
+              Already have an account?{" "}
+              <Link to="/login">
+                Sign in <i className="fa-sharp fa-solid fa-caret-right"></i>
+              </Link>
+            </h5>
+            <h5>
+              Buying for work?{" "}
+              <Link to="#">
+                Create a free business account{" "}
+                <i className="fa-sharp fa-solid fa-caret-right"></i>
+              </Link>
+            </h5>
           </div>
-        </div>
-      )}
-      <div className="signup-form">
-        <h1>Create account</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Your Name
-            {nameErrors && (
-              <input
-                autoFocus
-                type="text"
-                name="name"
-                placeholder="First and last name"
-                value={name}
-                onChange={handleOnChange}
-              />
-            )}
-            {nameErrors && (
-              <div className="input-field-error-message-container">
-                <span className="input-field-error-message">
-                  {nameErrorsMessage}
-                </span>
-              </div>
-            )}
-            {!nameErrors && (
-              <input
-                className={validInput}
-                autoFocus
-                type="text"
-                name="name"
-                placeholder="First and last name"
-                value={name}
-                onChange={handleOnChange}
-              />
-            )}
-          </label>
-          <label>
-            Email
-            {emailErrors && (
-              <input
-                autoFocus
-                type="text"
-                name="email"
-                value={email}
-                onChange={handleOnChange}
-              />
-            )}
-            {emailErrors && (
-              <div className="input-field-error-message-container">
-                <span className="input-field-error-message">
-                  {emailErrorsMessage}
-                </span>
-              </div>
-            )}
-            {!emailErrors && (
-              <input
-                className="valid-input-field"
-                type="text"
-                name="email"
-                value={email}
-                onChange={handleOnChange}
-              />
-            )}
-          </label>
-          <label>
-            Password
-            {passwordErrors && (
-              <input
-                autoFocus
-                type="password"
-                name="password"
-                placeholder="At least 6 characters"
-                value={password}
-                onChange={handleOnChange}
-              />
-            )}
-            {passwordErrors && (
-              <div className="input-field-error-message-container">
-                <span className="input-field-error-message">
-                  {passwordErrorsMessage}
-                </span>
-              </div>
-            )}
-            {!passwordErrors && (
-              <input
-                className="valid-input-field"
-                type="password"
-                name="password"
-                placeholder="At least 6 characters"
-                value={password}
-                onChange={handleOnChange}
-              />
-            )}
-            {!passwordErrors && (
-              <div className="input-field-require-message-container">
-                <span className="password-requirement">
-                  Passwords must be at least 6 characters
-                </span>
-              </div>
-            )}
-          </label>
-          <label>
-            Re-enter Password
-            {confirmPasswordErrors && (
-              <input
-                autoFocus
-                type="password"
-                name="confirmPassword"
-                value={confirmPassword}
-                onChange={handleOnChange}
-              />
-            )}
-            {confirmPasswordErrors && (
-              <div className="input-field-error-message-container">
-                <span className="input-field-error-message">
-                  {confirmPasswordErrorsMessage}
-                </span>
-              </div>
-            )}
-            {!confirmPasswordErrors && (
-              <input
-                className="valid-input-field"
-                type="password"
-                name="confirmPassword"
-                value={confirmPassword}
-                onChange={handleOnChange}
-              />
-            )}
-          </label>
-          <button className="signup-button" type="submit">
-            Continue
-          </button>
-        </form>
-        <p>
-          By creating an account, you agree to Ryamazon's{" "}
-          <a style={{ textDecoration: "none", color: "#0066c0" }} href="">
-            Conditions of Use
-          </a>{" "}
-          and{" "}
-          <a style={{ textDecoration: "none", color: "#0066c0" }} href="">
-            Privacy Notice
-          </a>
-          .
-        </p>
-        <div className="divider-container"></div>
-        <div className="divider-links">
-          <h5>
-            Already have an account?{" "}
-            <Link to="/login">
-              Sign in <i className="fa-sharp fa-solid fa-caret-right"></i>
-            </Link>
-          </h5>
-          <h5>
-            Buying for work?{" "}
-            <Link to="#">
-              Create a free business account{" "}
-              <i className="fa-sharp fa-solid fa-caret-right"></i>
-            </Link>
-          </h5>
         </div>
       </div>
+      <div className="footer-divider"></div>
+      <LoginFooter />
     </div>
   );
 }
