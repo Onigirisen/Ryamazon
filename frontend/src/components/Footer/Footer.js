@@ -11,41 +11,13 @@ const Footer = () => {
             <h5>About Us</h5>
             <ul>
               <li>
-                <a href="#">Company Information</a>
+                <a href="https://onigirisen.github.io/">Company Information</a>
               </li>
               <li>
-                <a href="#">Contact Us</a>
-              </li>
-              <li>
-                <a href="#">Careers</a>
+                <a href="mailto:ryanroykok@gmail.com">Contact Us</a>
               </li>
             </ul>
           </div>
-          {/* <div className="col-sm-3">
-            <h5>Customer Service</h5>
-            <ul>
-              <li>
-                <a href="#">Help & FAQs</a>
-              </li>
-              <li>
-                <a href="#">Returns & Refunds</a>
-              </li>
-              <li>
-                <a href="#">Shipping Information</a>
-              </li>
-            </ul>
-          </div> */}
-          {/* <div className="col-sm-3">
-            <h5>Legal</h5>
-            <ul>
-              <li>
-                <a href="#">Terms & Conditions</a>
-              </li>
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-            </ul>
-          </div> */}
           <div className="col-sm-3">
             <h5>Follow Us</h5>
             <ul className="social-media">
