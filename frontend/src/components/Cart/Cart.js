@@ -11,6 +11,7 @@ import verified from "../../assets/images/verified.png";
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const [qty, setQty] = useState(1);
   const cart = useSelector((state) => state.cart);
   const userId = useSelector((state) => state.session.user?.id);
   const [subTotal, setSubtotal] = useState(0.0);
@@ -102,8 +103,29 @@ const Cart = () => {
                           <span className="free-returns">FREE Returns</span>
                         </div>
                         <div className="qty-button-container">
-                          <div className="cart-item-quantity">
+                          {/* <div className="cart-item-quantity">
                             Qty: {cartItem.quantity}
+                          </div> */}
+                          <div className="select-wrap">
+                            <label>
+                              Qty:
+                              <select
+                                className="qty"
+                                value={qty}
+                                onChange={(e) => setQty(e.target.value)}
+                              >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                              </select>
+                            </label>
                           </div>
                           <div className="cart-item-delete-container">
                             <button

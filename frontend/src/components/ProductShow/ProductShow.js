@@ -50,6 +50,7 @@ const ProductShow = () => {
     e.preventDefault();
     if (userId) {
       dispatch(addItemToCart(userId, productId, qty));
+      history.push("/cart");
     } else {
       history.push("/login");
     }
@@ -114,13 +115,11 @@ const ProductShow = () => {
                 </label>
               </div>
               <div className="ordering-button-container">
-                <Link to="/cart">
-                  <input
-                    type="submit"
-                    className="add-cart-button"
-                    value="Add to Cart"
-                  />
-                </Link>
+                <input
+                  type="submit"
+                  className="add-cart-button"
+                  value="Add to Cart"
+                />
               </div>
             </form>
           </div>

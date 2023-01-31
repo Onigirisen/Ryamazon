@@ -18,7 +18,12 @@ class Api::CartsController < ApplicationController
     end
 
     def update
-    
+        @cart = current_user.Cart.find(params[:id])
+        if @cart.update(cart_params)
+            render :show
+        else
+            render json: { errors: @cart.errors.full_messages }, status: :unprocessable_entity
+        end
     end
 
     def destroy
