@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import gitHubFilled from "../../assets/images/github-filled.png";
-import linkedInFilled from "../../assets/images/linkedin-filled.png";
+
 const CategoryNav = () => {
   return (
     <div className="category-navbar">
@@ -48,16 +47,6 @@ const CategoryNav = () => {
             <span className="nav-link-bottom-line"> Sports </span>
           </div>
         </Link>
-        <a href="https://github.com/Onigirisen" target="_blank">
-          <div className="nav-link">
-            <img src={gitHubFilled} />
-          </div>
-        </a>
-        <a href="https://linkedin.com/in/ryan-kok-6ab427b6" target="_blank">
-          <div className="nav-link">
-            <img src={linkedInFilled} />
-          </div>
-        </a>
       </div>
     </div>
   );
