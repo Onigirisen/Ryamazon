@@ -9,6 +9,7 @@ import ProductShow from "./components/ProductShow/ProductShow";
 import SignupForm from "./components/SignupForm";
 import ProductIndex from "./components/ProductIndex";
 import HomePage from "./components/HomePage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
           <Navbar />
           <CategoryNav />
           <HomePage />
+          <Footer />
         </Route>
       </Switch>
     </div>
