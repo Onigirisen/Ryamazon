@@ -43,7 +43,6 @@ function App() {
           <Navbar />
           <CategoryNav />
           <ProductShow />
-          <Footer />
         </Route>
 
         <Route exact path="/:category">
