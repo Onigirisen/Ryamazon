@@ -13,7 +13,7 @@ ApplicationRecord.transaction do
     Product.destroy_all
     User.destroy_all
     Review.destroy_all
-    
+
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('products')  
@@ -26,6 +26,37 @@ ApplicationRecord.transaction do
       email: 'demo@user.io', 
       password: 'password'
     )
+
+    user = User.create(
+      name: 'Ryan Kok',
+      email: 'ryanroykok@gmail.com',
+      password: 'password'
+    )
+
+    user = User.create(
+      name: 'Ego Prime',
+      email: 'EgoP@gmail.com',
+      password: 'password'
+    )
+
+    user = User.create(
+      name: 'Onigiri Sen',
+      email: 'onigirisen@gmail.com',
+      password: 'password'
+    )
+
+    user = User.create(
+      name: 'Justin Time',
+      email: 'justintime@gmail.com',
+      password: 'password'
+    )
+
+    user = User.create(
+      name: 'Creative Cindy',
+      email: 'cindycreates@gmail.com',
+      password: 'password'
+    )
+
 
     book1 = Product.create(
       {name: "It Starts with Us: A Novel (It Ends with Us)" ,
@@ -589,10 +620,10 @@ ApplicationRecord.transaction do
 
     1000.times do
       Review.create(
-          title: Faker::GreekPhilosophers.quote,
+          title: Faker::Quote.fortune_cookie,
           body: Faker::Lorem.paragraph(sentence_count: 10, supplemental: false, random_sentences_to_add: 4),
           rating: rand(2..5).to_i,
-          product_id: rand(0..79).to_i,
+          product_id: rand(0..45).to_i,
           user_id: rand(1..5).to_i,
       )
     end

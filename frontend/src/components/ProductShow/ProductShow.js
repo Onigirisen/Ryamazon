@@ -6,6 +6,7 @@ import { fetchProduct, getProduct } from "../../store/product";
 import { fetchReviews, getReviews } from "../../store/review";
 import { addItemToCart } from "../../store/cart";
 import { Link } from "react-router-dom";
+import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 
 const ProductShow = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,30 @@ const ProductShow = () => {
   const userId = useSelector((state) => state.session.user?.id);
   const product = useSelector(getProduct(productId)) || {};
   // const reviews = useSelector(getReviews()) || {};
+
+  const ratingStars = (rating) => {
+    let fullStars = rating;
+
+    const starsArr = [];
+    for (let stars = 0; stars < 5; stars++) {
+      if (fullStars >= 1) {
+        starsArr.push(<BsStarFill key={stars} />);
+        fullStars -= 1;
+      } else if (fullStars === 0) {
+        starsArr.push(<BsStar key={stars} />);
+      } else {
+        if (fullStars < 0.3) {
+          starsArr.push(<BsStar key={stars} />);
+        } else if (fullStars > 0.7) {
+          starsArr.push(<BsStarFill key={stars} />);
+        } else {
+          starsArr.push(<BsStarHalf key={stars} />);
+        }
+        fullStars = 0;
+      }
+    }
+    return starsArr;
+  };
 
   useEffect(() => {
     if (productId) dispatch(fetchProduct(productId));
@@ -65,6 +90,12 @@ const ProductShow = () => {
       <div className="product-mid-section">
         <h1>{product.name}</h1>
         <hr />
+        <div className="show-product-rating">
+          <div className="stars">{ratingStars(product?.averageRating)}</div>
+          <div className="show-product-ratings">
+            {product?.countOfReviews} ratings
+          </div>
+        </div>
         <div className="product-price-container">
           <div className="product-price-name">Price:</div>
           <div className="product-price">${product.price}</div>
