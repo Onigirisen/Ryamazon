@@ -52,6 +52,20 @@ export const addItemToCart =
     dispatch(receiveCart(data));
   };
 
+export const updateCart = (cart, user_id, quantity) => async (dispatch) => {
+  console.log(cart.id);
+  const res = await csrfFetch(`/api/carts/${cart.id}`, {
+    method: "PATCH",
+    body: JSON.stringify({ cart: { user_id, quantity } }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await res.json();
+  dispatch(receiveCart(data));
+};
+
 export const removeItemFromCart = (user_id, product_id) => async (dispatch) => {
   const res = await csrfFetch(`/api/carts/${user_id}`, {
     method: "DELETE",

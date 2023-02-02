@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import {
-  // addItemToCart,
+  updateCart,
   removeAllItemsFromCart,
   removeItemFromCart,
 } from "../../store/cart";
@@ -11,11 +11,12 @@ import verified from "../../assets/images/verified.png";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const [qty, setQty] = useState(1);
   const cart = useSelector((state) => state.cart);
+  const [qty, setQty] = useState(1);
   const userId = useSelector((state) => state.session.user?.id);
   const [subTotal, setSubtotal] = useState(0.0);
   const history = useHistory();
+
   useEffect(() => {
     calculateSubtotal();
   });
@@ -64,7 +65,7 @@ const Cart = () => {
                 <div key={`cartItem-${idx}`}>
                   <li className="item-in-cart">
                     <div className="item-in-cart-photo-container">
-                      <Link to={`/products/${cartItem.id}`}>
+                      <Link to={`/products/${cartItem.productId}`}>
                         <img
                           src={cartItem.photoURL}
                           alt=""
@@ -75,7 +76,7 @@ const Cart = () => {
                     <div className="cart-items-list-container">
                       <div className="cart-item-info-container">
                         <div className="cart-item-name">
-                          <Link to={`/products/${cartItem.id}`}>
+                          <Link to={`/products/${cartItem.productId}`}>
                             {cartItem.name}
                           </Link>
                         </div>
@@ -111,8 +112,11 @@ const Cart = () => {
                               Qty:
                               <select
                                 className="qty"
-                                value={qty}
-                                onChange={(e) => setQty(e.target.value)}
+                                value={cartItem.quantity}
+                                onChange={(e) => {
+                                  setQty(e.target.value);
+                                  dispatch(updateCart(cartItem, userId, qty));
+                                }}
                               >
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -132,7 +136,7 @@ const Cart = () => {
                               className="cart-item-delete-button"
                               onClick={(e) => {
                                 dispatch(
-                                  removeItemFromCart(userId, cartItem.id)
+                                  removeItemFromCart(userId, cartItem.productId)
                                 );
                               }}
                             >
