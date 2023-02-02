@@ -15,7 +15,7 @@ const HomePage = () => {
       <div className="homepage-container">
         <img className="homepage-background" src={background} alt="" />
         <div className="homepage-layout">
-          <Link to="/products/45">
+          <Link to="/products/44">
             <HomePageItem message="Best Seller in Clothing" link={jersey} />
           </Link>
           <Link to="/products/1">

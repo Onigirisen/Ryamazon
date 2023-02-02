@@ -7,6 +7,7 @@ const ReviewsIndex = ({
   product: { id, reviews, averageRating, countOfReviews },
 }) => {
   const userId = useSelector((state) => state.session.user?.id);
+  const sessionUser = useSelector((state) => state.session.user);
   const ratingStars = (rating) => {
     let fullStars = rating;
 
@@ -53,9 +54,16 @@ const ReviewsIndex = ({
           <div className="reviews-share">
             Share your thoughts with other customers
           </div>
-          <Link to={`/products/${id}/review/new`}>
-            <button className="button5">Write a customer review</button>
-          </Link>
+          {sessionUser && (
+            <Link to={`/products/${id}/review/new`}>
+              <button className="button5">Write a customer review</button>
+            </Link>
+          )}
+          {!sessionUser && (
+            <Link to={`/login`}>
+              <button className="button5">Write a customer review</button>
+            </Link>
+          )}
         </div>
       </div>
       <ul>

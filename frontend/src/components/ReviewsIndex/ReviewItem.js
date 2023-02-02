@@ -1,7 +1,6 @@
 import { BsStarFill, BsStar } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { useDispatch } from "react-redux";
-
 const ratingStars = (rating) => {
   let fullStars = rating;
 
