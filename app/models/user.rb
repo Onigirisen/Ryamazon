@@ -19,6 +19,10 @@ class User < ApplicationRecord
   source: :product
 
   has_many :reviews
+  has_many :products_reviewed,
+		through: :reviews,
+		source: :product
+
 
   def self.find_by_credentials(credential, password)
     field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :name

@@ -12,7 +12,8 @@ ApplicationRecord.transaction do
     # Unnecessary if using `rails db:seed:replant`
     Product.destroy_all
     User.destroy_all
-  
+    Review.destroy_all
+    
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('products')  
@@ -585,4 +586,14 @@ ApplicationRecord.transaction do
     sports5.photo.attach(io: file, filename: 'raiders-jersey.jpg')
     
     puts "Done!"
+
+    1000.times do
+      Review.create(
+          title: Faker::GreekPhilosophers.quote,
+          body: Faker::Lorem.paragraph(sentence_count: 10, supplemental: false, random_sentences_to_add: 4),
+          rating: rand(2..5).to_i,
+          product_id: rand(0..79).to_i,
+          user_id: rand(1..5).to_i,
+      )
+    end
 end

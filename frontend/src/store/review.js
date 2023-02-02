@@ -52,8 +52,8 @@ export const createReview = (review) => async (dispatch) => {
   dispatch(receiveReview(data));
 };
 
-export const updateReview = (reviewId, review) => async (dispatch) => {
-  const res = await fetch(`/api/reviews/${reviewId}`, {
+export const updateReview = (review) => async (dispatch) => {
+  const res = await fetch(`/api/reviews/${review.id}`, {
     method: "PATCH",
     body: JSON.stringify(review),
     headers: {
@@ -85,6 +85,12 @@ const reviewsReducer = (state = {}, action) => {
     case RECIEVE_REVIEW:
       newState[action.review.id] = action.review;
       return newState;
+    case REMOVE_REVIEW:
+      const stateArr2 = Object.values(newState);
+      let updatedState = stateArr2.filter(
+        (review) => review.id !== action.reviewId
+      );
+      return updatedState;
     default:
       return state;
   }
