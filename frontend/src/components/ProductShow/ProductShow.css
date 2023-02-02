@@ -62,6 +62,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-color: white;
   /* margin:  */
   width: 100%;
@@ -287,4 +288,20 @@ select:focus {
   flex-direction: column;
   color: #0000009a;
   font-size: 12px;
+}
+
+.stars {
+  color: #fcd200;
+}
+
+.product-rating {
+  color: #fcd200;
+}
+
+.product-show-information {
+  display: flex;
+}
+
+.show-product-rating {
+  display: flex;
 }

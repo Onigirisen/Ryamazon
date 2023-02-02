@@ -33,14 +33,14 @@ const ProductItem = ({
         <div className="product-information">
           <img src={photoURL} alt="" />
           <p className="product-name">{name}</p>
-          <p className="price">
-            <small>$</small>
-            <strong>{price}</strong>
-          </p>
           <div className="product-rating-container">
             <span className="product-rating">{ratingStars(averageRating)}</span>
             <span className="product-review-count">{countOfReviews}</span>
           </div>
+          <p className="price">
+            <small>$</small>
+            <strong>{price.toFixed(2)}</strong>
+          </p>
           <div className="tomorrow-shipping">
             <span className="shipping-text">Get it as soon as Tomorrow</span>
             <span className="shipping-text">FREE Shipping by Ryamazon</span>

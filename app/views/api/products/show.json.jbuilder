@@ -2,5 +2,5 @@ json.extract! @product, :id, :name, :description, :category, :price, :average_ra
 json.photoURL @product.photo.url
 
 json.reviews do
-    json.array! @product.reviews, :user, :id, :title, :body, :rating, :product_id, :created_at
+    json.array! @product.reviews, :user, :id, :title, :body, :rating, :product_id, :user_id, :created_at
 end

@@ -227,7 +227,7 @@ ApplicationRecord.transaction do
       Built-in Tile finding technology.
       Call, track and volume controls.Connectivity technology: Wired.Included components: User Guide.',
       category: "electronics",
-      price: 178.00}
+      price: 178.99}
     )
 
     file = URI.open('https://ryamazon-seed.s3.amazonaws.com/skullcandy-crusher-evo.jpg')
@@ -257,18 +257,6 @@ ApplicationRecord.transaction do
     electronics4.photo.attach(io: file, filename: 'drift-ghost-xl-handleber-mount.jpg')
 
     electronics5= Product.create(
-      {name: 'Drift Ghost XL and Handlebar Mount',
-      description: '9 HOURS BATTERY LIFE - Record all day at full HD 1080P without worrying your battery will die.
-      IPX7 WATERPROOF - Use your Ghost XL in the rain, pool or snow and never have to worry about it getting damaged.
-      ROTATING LENS - Easily align your shot regardless of the mounting position by turning the lens up to 300 degrees.',
-      category: "electronics",
-      price: 159.99}
-    )
-
-    file = URI.open('https://ryamazon-seed.s3.amazonaws.com/Insignia-32-inch-class-f20.jpg')
-    electronics5.photo.attach(io: file, filename: 'Insignia-32-inch-class-f20.jpg')
-
-    electronics6= Product.create(
       {name: 'Insignia 32-inch Class F20 Series Smart HD 720p Fire TV (NS-32F201NA22, 2021 Model)',
       description: '720p resolution: View your favorite movies, shows and games in high definition.
       Alexa voice control: The Alexa Voice Remote lets you easily control your entertainment, search across apps, switch inputs, and more using just your voice. Press and hold the voice button and ask Alexa to easily find, launch, and control content, and even switch to cable.
@@ -278,22 +266,22 @@ ApplicationRecord.transaction do
     )
 
     file = URI.open('https://ryamazon-seed.s3.amazonaws.com/Insignia-32-inch-class-f20.jpg')
-    electronics6.photo.attach(io: file, filename: 'Insignia-32-inch-class-f20.jpg')
+    electronics5.photo.attach(io: file, filename: 'Insignia-32-inch-class-f20.jpg')
 
-    electronics7= Product.create(
+    electronics6= Product.create(
       {name: 'beyerdynamic DT 1770 Pro Studio Headphone, DT 1770 PRO (DT 1770 PRO)',
       description: 'Closed studio reference headphones for mixing, mastering, monitoring and recording, Made in Germany.
       250 ohms, 45 mm dynamic Tesla neodymium drivers.
       Single sided, detachable cable with mini-XLR connectors.Nominal sound pressure level:102 dBSPL (1mW/500Hz).
       Soft, replaceable ear pads and headband for long studio sessions.',
       category: "electronics",
-      price: 529.00}
+      price: 529.99}
     )
 
     file = URI.open('https://ryamazon-seed.s3.amazonaws.com/beyerdynamic-dt-1770-pro.jpg')
-    electronics7.photo.attach(io: file, filename: 'beyerdynamic-dt-1770-pro.jpg')
+    electronics6.photo.attach(io: file, filename: 'beyerdynamic-dt-1770-pro.jpg')
 
-    electronics8= Product.create(
+    electronics7= Product.create(
       {name: 'Fire TV Stick 4K, brilliant 4K streaming quality, TV and smart home controls, free and live TV',
       description: 'Cinematic experience - Watch in vibrant 4K Ultra HD with support for Dolby Vision, HDR, and HDR10+.
       Home theater audio with Dolby Atmos - Feel scenes come to life with support for immersive Dolby Atmos audio on select titles with compatible home audio systems.
@@ -303,9 +291,9 @@ ApplicationRecord.transaction do
     )
 
     file = URI.open('https://ryamazon-seed.s3.amazonaws.com/firesticktv.jpg')
-    electronics8.photo.attach(io: file, filename: 'firesticktv.jpg')
+    electronics7.photo.attach(io: file, filename: 'firesticktv.jpg')
 
-    electronics9= Product.create(
+    electronics8= Product.create(
       {name: 'Apple AirTag',
       description: 'Keep track of and find your items alongside friends and devices in the Find My app.
       Simple one-tap setup instantly connects AirTag with your iPhone or iPad.
@@ -317,9 +305,9 @@ ApplicationRecord.transaction do
     )
 
     file = URI.open('https://ryamazon-seed.s3.amazonaws.com/apple-air-tag.jpg')
-    electronics9.photo.attach(io: file, filename: 'apple-air-tag.jpg')
+    electronics8.photo.attach(io: file, filename: 'apple-air-tag.jpg')
 
-    electronics10= Product.create(
+    electronics9= Product.create(
       {name: 'HP DeskJet 2755e Wireless Color All-in-One Printer with Bonus 6 Months Instant Ink with HP+',
       description: "6 FREE MONTHS INSTANT INK SUBSCRIPTION when you activate HP+ - Print up to 700 pages a month. Ink ships to you automatically so you never run out. After 6 months, monthly fee applies unless cancelled, and you'll save up to 50% on ink.
       INCLUDES FREE HP+ SMART FEATURES - Activate HP+ free to get advanced features for mobile printing, security, automatic updates and more. HP+ only works with an HP account, internet connection and Original HP Ink for the life of the printer.
@@ -329,7 +317,7 @@ ApplicationRecord.transaction do
     )
 
     file = URI.open('https://ryamazon-seed.s3.amazonaws.com/hp-deskjet-2755e.jpg')
-    electronics10.photo.attach(io: file, filename: 'hp-deskjet-2755e.jpg')
+    electronics9.photo.attach(io: file, filename: 'hp-deskjet-2755e.jpg')
 
     computers1= Product.create(
       {name: 'iBUYPOWER Pro Gaming PC Computer Desktop SlateMR 281a (AMD Ryzen 5 5600G 3.9 GHz, Nvidia Geforce RTX 3060 12GB, 16GB DDR4, 500GB NVME SSD',
@@ -495,7 +483,7 @@ ApplicationRecord.transaction do
       {name: "Mario Badescu Body Breakout Kit,8 Fl Oz (Pack of 2)",
       description: "Cleanse and clarify troubled skin on your back, chest, and shoulders. This clarifying cleanser-toner duo is a two-step bodycare routine designed to deep clean problem-prone areas to encourage clearer-looking skin. Deep cleans and clarifies troubled skin on the back, chest, and shoulders. ",
       category: "beautyhealth",
-      price: 22.00}
+      price: 22.99}
     )
 
     file = URI.open('https://ryamazon-seed.s3.amazonaws.com/mario-badescu-body.jpg')
@@ -566,7 +554,7 @@ ApplicationRecord.transaction do
       {name: "GRITRIVAL Electric Mountain Bike, BAFANG Motor 750W 48V 13.4AH, Ebike Top Speed 20MPH/32KMH, Shimano 7-Speed, 4.0 Fat Tire Electric Bike",
       description: "SUSTAINABLE STRONG POWER: The electric bike for adults is a 750W Bafang motor. The top speed of 20MPH still has strong power when the battery is only 10% left.",
       category: "sports",
-      price: 1459.00}
+      price: 1459.99}
     )
 
     file = URI.open('https://ryamazon-seed.s3.amazonaws.com/gritrival-mountain-bike.jpg')

@@ -29,7 +29,7 @@ export const getReview =
   };
 
 export const fetchReviews = () => async (dispatch) => {
-  const res = await fetch("/api/reviewss");
+  const res = await fetch("/api/reviews");
   const data = await res.json();
   dispatch(receiveReviews(data));
 };
