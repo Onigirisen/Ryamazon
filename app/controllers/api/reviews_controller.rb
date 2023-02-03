@@ -1,9 +1,14 @@
 class Api::ReviewsController < ApplicationController
+    wrap_parameters include: Review.attribute_names + ["userId", "productId"]
     def create
         @review = Review.new(review_params)
-        @review.save
-        @product = @review.product
-        render 'api/products/show'
+        @review.user_id = current_user.id
+        if @review.save!
+            render :show
+        else
+            render json: { errors: @review.errors.full_messages }, status: :unprocessable_entity
+        end
+
     end
 
     def update

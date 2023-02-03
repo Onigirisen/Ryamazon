@@ -1,0 +1,19 @@
+.radio-rating {
+  display: none;
+}
+
+.faStar {
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.review-productIMG {
+  height: auto;
+  width: 50px;
+}
+
+.review-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

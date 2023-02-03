@@ -10,6 +10,7 @@ import SignupForm from "./components/SignupForm";
 import ProductIndex from "./components/ProductIndex";
 import HomePage from "./components/HomePage";
 import Footer from "./components/Footer";
+import ReviewForm from "./components/ReviewForm";
 
 function App() {
   return (
@@ -48,7 +49,7 @@ function App() {
         <Route exact path="/products/:productId/review/new">
           <Navbar />
           <CategoryNav />
-
+          <ReviewForm />
           <Footer />
         </Route>
         <Route exact path="/:category">
