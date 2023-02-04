@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :products, only: [:index, :show]
     resources :carts, only: [:show, :create, :update, :destroy] 
-    resources :reviews, only: [:create, :update, :destroy]
+    resources :reviews, only: [:create, :show, :update, :destroy]
     delete :destroy_cart_items, controller: "carts"
   end
 

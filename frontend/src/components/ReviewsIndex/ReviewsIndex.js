@@ -55,7 +55,7 @@ const ReviewsIndex = ({
             Share your thoughts with other customers
           </div>
           {sessionUser && (
-            <Link to={`/products/${id}/review/new`}>
+            <Link to={`/products/${id}/review/`}>
               <button className="button5">Write a customer review</button>
             </Link>
           )}

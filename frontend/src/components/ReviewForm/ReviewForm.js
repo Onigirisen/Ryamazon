@@ -15,7 +15,7 @@ const ReviewForm = () => {
   const { productId } = useParams();
   const { reviewId } = useParams();
   console.log(reviewId);
-  const review = useSelector(getReview(reviewId)) || {};
+  const review = useSelector(getReview(reviewId));
   console.log(review);
   const product = useSelector(getProduct(productId)) || {};
   const sessionUser = useSelector((state) => state.session.user);
@@ -29,12 +29,11 @@ const ReviewForm = () => {
   if (!sessionUser) history.push("./login");
 
   useEffect(() => {
-    dispatch(fetchProduct(productId));
-  }, [productId, dispatch]);
-
-  useEffect(() => {
     dispatch(fetchReview(reviewId));
   }, [reviewId, dispatch]);
+  useEffect(() => {
+    dispatch(fetchProduct(productId));
+  }, [productId, dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
