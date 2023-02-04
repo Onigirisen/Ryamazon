@@ -1,6 +1,6 @@
 import csrfFetch from "./csrf";
 export const RECEIVE_REVIEWS = "reviews/RECEIVE_REVIEWS";
-export const RECIEVE_REVIEW = "reviews/RECIEVE_REVIEW";
+export const RECEIVE_REVIEW = "reviews/RECIEVE_REVIEW";
 export const REMOVE_REVIEW = "reviews/REMOVE_REVIEW";
 
 export const receiveReviews = (reviews) => ({
@@ -9,7 +9,7 @@ export const receiveReviews = (reviews) => ({
 });
 
 export const receiveReview = (review) => ({
-  type: RECIEVE_REVIEW,
+  type: RECEIVE_REVIEW,
   review,
 });
 
@@ -82,7 +82,7 @@ const reviewsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_REVIEWS:
       return action.reviews;
-    case RECIEVE_REVIEW:
+    case RECEIVE_REVIEW:
       newState[action.review.id] = action.review;
       return newState;
     case REMOVE_REVIEW:
