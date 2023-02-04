@@ -46,7 +46,13 @@ function App() {
           <ProductShow />
           <Footer />
         </Route>
-        <Route exact path="/products/:productId/review/new">
+        <Route exact path="/products/:productId/review/">
+          <Navbar />
+          <CategoryNav />
+          <ReviewForm />
+          <Footer />
+        </Route>
+        <Route exact path="/products/:productId/review/:reviewId">
           <Navbar />
           <CategoryNav />
           <ReviewForm />

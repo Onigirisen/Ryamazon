@@ -14,7 +14,9 @@ import {
 const ReviewForm = () => {
   const { productId } = useParams();
   const { reviewId } = useParams();
-  const review = useSelector(getReview(reviewId));
+  console.log(reviewId);
+  const review = useSelector(getReview(reviewId)) || {};
+  console.log(review);
   const product = useSelector(getProduct(productId)) || {};
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
@@ -35,7 +37,6 @@ const ReviewForm = () => {
   }, [reviewId, dispatch]);
 
   const handleSubmit = (e) => {
-    console.log(product);
     e.preventDefault();
     if (rating && title && body) {
       dispatch(createReview({ title, body, rating, productId: product.id }));
@@ -94,6 +95,7 @@ const ReviewForm = () => {
             type="text"
             placeholder="What's most important to know?"
             onChange={(e) => setTitle(e.target.value)}
+            value={title}
           />
         </div>
         <div className="review-body">
@@ -101,6 +103,7 @@ const ReviewForm = () => {
           <textarea
             placeholder="What did you like or dislike? What did you use this product for?"
             onChange={(e) => setBody(e.target.value)}
+            value={body}
           />
         </div>
         <button type="submit" className="button6" onClick={handleSubmit}>
