@@ -22,16 +22,22 @@ const ReviewForm = () => {
   const [rating, setRating] = useState(review ? review.rating : 1);
   const [title, setTitle] = useState(review ? review.title : "");
   const [body, setBody] = useState(review ? review.body : "");
-  //   const [user, setUser] = useState(sessionUser.name);
 
   if (!sessionUser) history.push("./login");
 
   useEffect(() => {
-    dispatch(fetchReview(reviewId));
-  }, [reviewId, dispatch]);
+    dispatch(fetchReview(productId, reviewId));
+  }, [productId, reviewId, dispatch]);
   useEffect(() => {
     dispatch(fetchProduct(productId));
   }, [productId, dispatch]);
+  useEffect(() => {
+    if (review.id) {
+      setRating(review.rating);
+      setBody(review.body);
+      setTitle(review.title);
+    }
+  }, [review.id, dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

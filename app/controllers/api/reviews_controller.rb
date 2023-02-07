@@ -40,8 +40,7 @@ class Api::ReviewsController < ApplicationController
     def destroy
         @review = Review.find(params[:id])
         @review.delete
-        @product = @review.product
-        render 'api/products/show'
+        render  :show
     end
 
     private

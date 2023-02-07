@@ -17,7 +17,6 @@ const ProductShow = () => {
   const userId = useSelector((state) => state.session.user?.id);
   const product = useSelector(getProduct(productId)) || {};
   const reviews = useSelector(getReviews);
-  console.log(reviews);
   const reviewsListItem = <ReviewsIndex reviews={reviews} product={product} />;
   const ratingStars = (rating) => {
     let fullStars = rating;

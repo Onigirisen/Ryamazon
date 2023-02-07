@@ -28,8 +28,8 @@ const ReviewItem = (props) => {
   };
 
   const handleClick = (e) => {
-    dispatch(props.deleteReview(props.review.id));
-    window.location.reload();
+    dispatch(props.deleteReview(props.productId, props.review.id));
+    // window.location.reload();
   };
 
   return (
