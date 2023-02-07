@@ -195,7 +195,10 @@ const ProductShow = () => {
           </div>
         </div>
       </div>
-      <div className="reviews-section">{reviewsListItem}</div>
+      <div className="reviews-section">
+        <hr className="reviews-list-hr" />
+        {reviewsListItem}
+      </div>
     </div>
   );
 };

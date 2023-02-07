@@ -34,40 +34,47 @@ const ReviewsIndex = ({
   };
 
   const sortReviews = (reviews) => {
-    // react doesn't allow state to be modified, so reviews arr from state must be made into a new arr
     let tempReviews = [...reviews];
     return tempReviews.sort((a, b) => b.id - a.id);
   };
 
   return (
-    <div className="reviews">
-      <div className="reviews-left">
+    <div className="reviews-container">
+      <div className="reviews-left-container">
         <h3>Customer reviews</h3>
         <div className="reviews-rating">
           <div className="stars">{ratingStars(averageRating)}</div>
-          <div>{Math.round(averageRating * 10) / 10} out of 5</div>
+          <div className="reviews-rating-number">
+            {Math.round(averageRating * 10) / 10} out of 5
+          </div>
         </div>
         <div className="reviews-global-ratings">
           {countOfReviews} global ratings
         </div>
-        <div className="reviews-bottom">
+        <hr />
+        <div className="reviews-bottom-section">
           <h4>Review this product</h4>
-          <div className="reviews-share">
+          <div className="reviews-share-thoughts">
             Share your thoughts with other customers
           </div>
           {sessionUser && (
             <Link to={`/products/${id}/review/`}>
-              <button className="button5">Write a customer review</button>
+              <button className="create-review-button">
+                Write a customer review
+              </button>
             </Link>
           )}
           {!sessionUser && (
             <Link to={`/login`}>
-              <button className="button5">Write a customer review</button>
+              <button className="create-review-button">
+                Write a customer review
+              </button>
             </Link>
           )}
+          <hr />
         </div>
       </div>
-      <ul>
+      <ul className="reviews-right-container">
         {reviews ? (
           //sorts reviews, then maps them into individual components
           sortReviews(reviews).map((review, key) => (

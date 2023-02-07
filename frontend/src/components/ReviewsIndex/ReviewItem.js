@@ -1,7 +1,7 @@
 import { BsStarFill, BsStar } from "react-icons/bs";
-import { CgProfile } from "react-icons/cg";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import profileIcon from "../../assets/images/profile-icon.png";
 
 const ReviewItem = (props) => {
   const dispatch = useDispatch();
@@ -29,14 +29,17 @@ const ReviewItem = (props) => {
 
   const handleClick = (e) => {
     dispatch(props.deleteReview(props.productId, props.review.id));
-    // window.location.reload();
   };
 
   return (
     <li>
-      <div className="review-profile">
-        <div className="review-profile-pic">
-          <CgProfile />
+      <div className="review-profile-info">
+        <div className="review-profile-icon">
+          <img
+            src={profileIcon}
+            alt="default profile"
+            className="profile-icon"
+          />
         </div>
         <div className="review-profile-name">{props.review.user?.name}</div>
       </div>
@@ -47,7 +50,7 @@ const ReviewItem = (props) => {
       <div className="review-date">
         Reviewed on {formatDate(props.review.createdAt)}
       </div>
-      <div className="review-purchase">Verified Purchase</div>
+      <div className="review-verified-purchase">Verified Purchase</div>
       <div>{props.review.body}</div>
       {props.review.userId === props.currentUserId ? (
         <div className="review-buttons">
