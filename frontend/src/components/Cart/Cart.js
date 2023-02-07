@@ -145,7 +145,6 @@ const Cart = () => {
                                     },
                                   });
                                   setTargetCart(cartItem.id);
-                                  console.log(e.target.value);
                                 }}
                               >
                                 <option value="1">1</option>
@@ -164,7 +163,7 @@ const Cart = () => {
                           <div className="cart-item-delete-container">
                             <button
                               className="cart-item-delete-button"
-                              onChange={(e) => {
+                              onClick={(e) => {
                                 dispatch(
                                   removeItemFromCart(userId, cartItem.productId)
                                 );
