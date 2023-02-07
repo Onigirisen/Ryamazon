@@ -84,6 +84,15 @@ const ProductShow = () => {
     setQty(1);
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (userId) {
+      history.push("/cart/checkout");
+    } else {
+      history.push("/login");
+    }
+  };
+
   return (
     <div className="product-show-container">
       <div className="product-show-information">
@@ -161,9 +170,9 @@ const ProductShow = () => {
               </form>
             </div>
             <div className="ordering-button-container">
-              <Link to="/cart/checkout">
-                <button className="buy-now-button">Buy Now</button>
-              </Link>
+              <button className="buy-now-button" onClick={handleClick}>
+                Buy Now
+              </button>
             </div>
             <div className="secure-transaction">
               <i className="fa-solid fa-lock"></i>
