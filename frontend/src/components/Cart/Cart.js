@@ -1,6 +1,6 @@
 import emptyCartBackground from "../../assets/images/empty-cart-background.png";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import {
   updateCart,
@@ -11,19 +11,42 @@ import verified from "../../assets/images/verified.png";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
-  const [qty, setQty] = useState(1);
+  const firstUpdate = useRef(false);
+  const carts = useSelector((state) => state.cart);
+  const [cartState, setCartState] = useState(initializeQtyData(carts));
+  const [targetCart, setTargetCart] = useState(null);
   const userId = useSelector((state) => state.session.user?.id);
   const [subTotal, setSubtotal] = useState(0.0);
   const history = useHistory();
-
+  console.log(cartState);
   useEffect(() => {
     calculateSubtotal();
   });
+  useEffect(() => {
+    if (targetCart) {
+      dispatch(
+        updateCart(
+          cartState[targetCart],
+          userId,
+          cartState[targetCart].quantity
+        )
+      );
+    }
+  }, [cartState, dispatch]);
+
+  useEffect(() => {
+    if (firstUpdate.current) {
+      return;
+    }
+    if (carts.length) {
+      setCartState(initializeQtyData(carts));
+      firstUpdate.current = true;
+    }
+  }, [carts.length]);
 
   const calculateSubtotal = () => {
     let sum = 0;
-    cart.forEach((cartItem) => {
+    carts.forEach((cartItem) => {
       sum += cartItem.quantity * cartItem.price;
     });
 
@@ -38,7 +61,7 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      {cart.length === 0 ? (
+      {carts.length === 0 ? (
         <div className="empty-cart-page">
           <div className="empty-cart-message">
             <span>Your Ryamazon Cart is empty</span>
@@ -61,7 +84,7 @@ const Cart = () => {
             <div className="price-row">Price</div>
             <hr />
             <ul>
-              {cart.map((cartItem, idx) => (
+              {carts.map((cartItem, idx) => (
                 <div key={`cartItem-${idx}`}>
                   <li className="item-in-cart">
                     <div className="item-in-cart-photo-container">
@@ -112,10 +135,17 @@ const Cart = () => {
                               Qty:
                               <select
                                 className="qty"
-                                value={cartItem.quantity}
+                                value={cartState[cartItem.id]?.quantity}
                                 onChange={(e) => {
-                                  setQty(e.target.value);
-                                  dispatch(updateCart(cartItem, userId, qty));
+                                  setCartState({
+                                    ...cartState,
+                                    [cartItem.id]: {
+                                      ...cartItem,
+                                      quantity: e.target.value,
+                                    },
+                                  });
+                                  setTargetCart(cartItem.id);
+                                  console.log(e.target.value);
                                 }}
                               >
                                 <option value="1">1</option>
@@ -134,7 +164,7 @@ const Cart = () => {
                           <div className="cart-item-delete-container">
                             <button
                               className="cart-item-delete-button"
-                              onClick={(e) => {
+                              onChange={(e) => {
                                 dispatch(
                                   removeItemFromCart(userId, cartItem.productId)
                                 );
@@ -153,7 +183,7 @@ const Cart = () => {
             </ul>
             <div className="cart-items-subtotal">
               <div className="subtotal-text">
-                Subtotal ({cart.length} items):
+                Subtotal ({carts.length} items):
               </div>
               <div className="subtotal-number">${subTotal}</div>
             </div>
@@ -177,7 +207,7 @@ const Cart = () => {
             </div>
             <div className="checkout-price-container">
               <div className="check-out-items-subtotal-text">
-                Subtotal ({cart.length} items):
+                Subtotal ({carts.length} items):
               </div>
               <div className="check-out-items-subtotal-number">${subTotal}</div>
             </div>
@@ -191,6 +221,14 @@ const Cart = () => {
       )}
     </div>
   );
+};
+
+const initializeQtyData = (carts) => {
+  const result = {};
+  carts.forEach((cart) => {
+    result[cart.id] = cart;
+  });
+  return result;
 };
 
 export default Cart;

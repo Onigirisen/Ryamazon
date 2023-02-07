@@ -20,7 +20,7 @@ class Api::CartsController < ApplicationController
 
     def update
         @cart = Cart.find_by(id: params[:id], user_id: cart_params[:user_id])
-        p params[:id]
+        @user = User.find(cart_params[:user_id])
         if @cart.update(quantity: cart_params[:quantity].to_i)
             render :show
         else
