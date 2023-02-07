@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import ReviewItem from ".";
 import { deleteReview } from "../../store/review";
 const ReviewsIndex = ({
-  product: { id, reviews, averageRating, countOfReviews },
+  product: { id, averageRating, countOfReviews },
+  reviews,
 }) => {
   const userId = useSelector((state) => state.session.user?.id);
   const sessionUser = useSelector((state) => state.session.user);

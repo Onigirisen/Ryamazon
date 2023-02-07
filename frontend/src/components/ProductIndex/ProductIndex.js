@@ -15,6 +15,7 @@ const ProductIndex = () => {
   const productListItem = allProducts.map((product) => (
     <ProductItem key={product.id} product={product} />
   ));
+
   useEffect(() => {
     category
       ? dispatch(fetchProductsByCategory(category))

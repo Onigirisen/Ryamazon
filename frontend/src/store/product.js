@@ -1,5 +1,5 @@
 export const RECEIVE_PRODUCTS = "products/RECEIVE_PRODUCTS";
-export const RECIEVE_PRODUCT = "products/RECIEVE_PRODUCT";
+export const RECEIVE_PRODUCT = "products/RECEIVE_PRODUCT";
 
 export const receiveProducts = (products) => ({
   type: RECEIVE_PRODUCTS,
@@ -7,7 +7,7 @@ export const receiveProducts = (products) => ({
 });
 
 export const receiveProduct = (product) => ({
-  type: RECIEVE_PRODUCT,
+  type: RECEIVE_PRODUCT,
   product,
 });
 
@@ -53,7 +53,7 @@ const productsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_PRODUCTS:
       return action.products;
-    case RECIEVE_PRODUCT:
+    case RECEIVE_PRODUCT:
       newState[action.product.id] = action.product;
       return newState;
     default:

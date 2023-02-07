@@ -2,6 +2,5 @@
     json.set! product.id do
         json.extract! product, :id, :name, :description, :category, :price, :average_rating, :count_of_reviews
         json.photoURL product.photo.url
-        json.reviews product.reviews
     end
 end

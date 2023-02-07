@@ -16,7 +16,9 @@ const ProductShow = () => {
   const { productId } = useParams();
   const userId = useSelector((state) => state.session.user?.id);
   const product = useSelector(getProduct(productId)) || {};
-  const reviewsListItem = <ReviewsIndex product={product} />;
+  const reviews = useSelector(getReviews);
+  console.log(reviews);
+  const reviewsListItem = <ReviewsIndex reviews={reviews} product={product} />;
   const ratingStars = (rating) => {
     let fullStars = rating;
 
@@ -43,6 +45,7 @@ const ProductShow = () => {
 
   useEffect(() => {
     if (productId) dispatch(fetchProduct(productId));
+    if (productId) dispatch(fetchReviews(productId));
   }, [productId, dispatch]);
 
   const freeDeliveryDate = () => {

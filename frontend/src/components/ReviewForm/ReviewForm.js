@@ -14,9 +14,7 @@ import {
 const ReviewForm = () => {
   const { productId } = useParams();
   const { reviewId } = useParams();
-  console.log(reviewId);
-  const review = useSelector(getReview(reviewId));
-  console.log(review);
+  const review = useSelector(getReview(reviewId)) || {};
   const product = useSelector(getProduct(productId)) || {};
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
