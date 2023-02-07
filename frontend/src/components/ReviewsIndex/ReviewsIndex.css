@@ -71,3 +71,50 @@
 .create-review-button:hover {
   background-image: linear-gradient(rgb(223, 222, 222), rgb(205, 205, 205));
 }
+
+.reviews-right-container {
+  margin-top: 25px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.review-profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.review-profile-name {
+  font-size: 13px;
+  margin-left: 10px;
+  color: #0f1111;
+}
+
+.review-heading {
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.review-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.review-date {
+  color: #818484;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.review-verified-purchase {
+  font-size: 12px;
+  font-weight: bold;
+  color: #f18b05;
+  margin-bottom: 2px;
+}
+
+.review-body {
+  font-size: 14px;
+  margin-bottom: 25px;
+}

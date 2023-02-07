@@ -43,7 +43,7 @@ const ReviewItem = (props) => {
         </div>
         <div className="review-profile-name">{props.review.user?.name}</div>
       </div>
-      <div className="review-header">
+      <div className="review-heading">
         <div className="stars">{ratingStars(props.review.rating)}</div>
         <div className="review-title">{props.review.title}</div>
       </div>
@@ -51,7 +51,7 @@ const ReviewItem = (props) => {
         Reviewed on {formatDate(props.review.createdAt)}
       </div>
       <div className="review-verified-purchase">Verified Purchase</div>
-      <div>{props.review.body}</div>
+      <div className="review-body">{props.review.body}</div>
       {props.review.userId === props.currentUserId ? (
         <div className="review-buttons">
           <Link to={`/products/${props.productId}/review/${props.review.id}`}>

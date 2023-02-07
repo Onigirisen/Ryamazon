@@ -102,7 +102,7 @@ const ProductShow = () => {
         <div className="product-mid-section">
           <h1>{product.name}</h1>
           <hr />
-          <div className="show-product-rating">
+          <div className="show-product-rating-container">
             <div className="stars">{ratingStars(product?.averageRating)}</div>
             <div className="show-product-ratings">
               {product?.countOfReviews} ratings
