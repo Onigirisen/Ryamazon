@@ -55,9 +55,9 @@ const ReviewItem = (props) => {
       {props.review.userId === props.currentUserId ? (
         <div className="review-buttons">
           <Link to={`/products/${props.productId}/review/${props.review.id}`}>
-            <button className="button2">Edit Review</button>
+            <button className="review-edit-button">Edit Review</button>
           </Link>
-          <button onClick={handleClick} className="button2">
+          <button onClick={handleClick} className="review-delete-button">
             Delete
           </button>
         </div>

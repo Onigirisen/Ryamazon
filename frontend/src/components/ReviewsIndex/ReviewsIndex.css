@@ -118,3 +118,26 @@
   font-size: 14px;
   margin-bottom: 25px;
 }
+
+.review-buttons {
+  margin-bottom: 25px;
+}
+
+.review-edit-button,
+.review-delete-button {
+  border: 1px solid;
+  border-color: rgb(169, 169, 169);
+  border-radius: 5px;
+  background: linear-gradient(
+    to bottom,
+    rgb(255, 254, 254),
+    rgb(238, 236, 236)
+  );
+  background-image: linear-gradient(rgb(223, 222, 222), rgb(245, 245, 245));
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.review-delete-button {
+  margin-left: 1px;
+}
