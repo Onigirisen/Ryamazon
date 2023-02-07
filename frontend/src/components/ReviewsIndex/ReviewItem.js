@@ -51,7 +51,7 @@ const ReviewItem = (props) => {
         Reviewed on {formatDate(props.review.createdAt)}
       </div>
       <div className="review-verified-purchase">Verified Purchase</div>
-      <div className="review-body">{props.review.body}</div>
+      <div className="reviews-body">{props.review.body}</div>
       {props.review.userId === props.currentUserId ? (
         <div className="review-buttons">
           <Link to={`/products/${props.productId}/review/${props.review.id}`}>

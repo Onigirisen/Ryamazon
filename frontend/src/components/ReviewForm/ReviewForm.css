@@ -7,13 +7,121 @@
   transition: 200ms;
 }
 
-.review-productIMG {
+.review-product-image {
+  margin-left: 15px;
   height: auto;
-  width: 50px;
+  width: 62px;
 }
 
 .review-product {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.review-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-form-inner-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-form h2 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.review-form-title {
+  margin-top: 15px;
+}
+
+.review-form-title > h1 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.review-product-name {
+  margin-left: 25px;
+  margin-right: 25px;
+  font-size: 14px;
+}
+
+.review-product-hr {
+  width: 100%;
+  border-top: 1px solid #cdcccc;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.headline-input {
+  width: 98%;
+  height: 28px;
+  background-color: rgb(255, 255, 255);
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  border: 1px solid rgb(166, 166, 166);
+}
+
+.headline-input:focus {
+  outline: none !important;
+  border-color: (240, 193, 75);
+  box-shadow: 0 0 0 2px rgb(250, 153, 17);
+}
+
+.review-body-textarea:focus {
+  outline: none !important;
+  border-color: (240, 193, 75);
+  box-shadow: 0 0 0 2px rgb(250, 153, 17);
+}
+
+.review-body-textarea {
+  resize: vertical;
+  overflow: auto;
+  width: 98%;
+  height: 250px;
+  background-color: rgb(255, 255, 255);
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  border: 1px solid rgb(166, 166, 166);
+}
+.review-body-textarea::placeholder {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.review-submit-button-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.review-create-button {
+  height: 28px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 6px;
+  border-width: 1px;
+  text-align: center;
+  background-color: #ffd814;
+  border-color: #fcd200;
+  cursor: pointer;
+}
+
+.review-create-button:hover {
+  background-color: #fcd200;
 }
