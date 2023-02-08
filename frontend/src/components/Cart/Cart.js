@@ -18,7 +18,6 @@ const Cart = () => {
   const userId = useSelector((state) => state.session.user?.id);
   const [subTotal, setSubtotal] = useState(0.0);
   const history = useHistory();
-  console.log(cartState);
   useEffect(() => {
     calculateSubtotal();
   });

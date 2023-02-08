@@ -33,7 +33,6 @@ function SignupForm() {
       setNameErrors(true);
       setNameErrorsMessage("Enter your name");
     }
-    console.log(nameErrorsMessage);
     if (email.length < 1) {
       setEmailErrors(true);
       setEmailErrorsMessage("Enter your email");

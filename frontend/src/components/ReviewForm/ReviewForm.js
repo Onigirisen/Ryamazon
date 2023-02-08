@@ -26,11 +26,13 @@ const ReviewForm = () => {
   if (!sessionUser) history.push("./login");
 
   useEffect(() => {
-    dispatch(fetchReview(productId, reviewId));
+    if (reviewId) dispatch(fetchReview(productId, reviewId));
   }, [productId, reviewId, dispatch]);
+
   useEffect(() => {
     dispatch(fetchProduct(productId));
   }, [productId, dispatch]);
+
   useEffect(() => {
     if (review.id) {
       setRating(review.rating);
@@ -69,12 +71,6 @@ const ReviewForm = () => {
           <div className="review-product-hr" />
         </div>
         <form className="review-form" onSubmit={handleSubmit}>
-          {/* <div
-          onChange={(e) => {
-            setRating(e.target.value);
-          }}
-          className="review-rating"
-        > */}
           <h2>Overall rating</h2>
           <div className="review-values">
             {[...Array(5)].map((star, i) => {

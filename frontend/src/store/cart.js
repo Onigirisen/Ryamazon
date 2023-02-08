@@ -53,7 +53,6 @@ export const addItemToCart =
   };
 
 export const updateCart = (cart, user_id, quantity) => async (dispatch) => {
-  console.log(cart.id);
   const res = await csrfFetch(`/api/carts/${cart.id}`, {
     method: "PATCH",
     body: JSON.stringify({ cart: { user_id, quantity } }),
