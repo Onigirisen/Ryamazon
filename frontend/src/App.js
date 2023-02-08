@@ -11,7 +11,7 @@ import ProductIndex from "./components/ProductIndex";
 import HomePage from "./components/HomePage";
 import Footer from "./components/Footer";
 import ReviewForm from "./components/ReviewForm";
-import Search from "./components/Search/Search";
+import Search from "./components/Search/";
 
 function App() {
   return (

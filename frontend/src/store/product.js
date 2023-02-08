@@ -1,13 +1,7 @@
 export const RECEIVE_PRODUCTS = "products/RECEIVE_PRODUCTS";
 export const RECEIVE_PRODUCT = "products/RECEIVE_PRODUCT";
-export const RECEIVE_SEARCH_PRODUCTS = "products/RECEIVE_SEARCH_PRODUCTS";
 
 export const receiveProducts = (products) => ({
-  type: RECEIVE_PRODUCTS,
-  products,
-});
-
-export const receiveSearchProducts = (products) => ({
   type: RECEIVE_PRODUCTS,
   products,
 });

@@ -12,23 +12,35 @@ const Search = () => {
   const resultList = results.map((product) => (
     <SearchItem key={product.id} product={product} />
   ));
+  const dummyDivs = [1, 2, 3, 4, 5, 6, 7].map((el) => (
+    <div className="hidden-product-placeholder" key={el}></div>
+  ));
   useEffect(() => {
     dispatch(fetchSearches(term));
   }, [dispatch, term]);
 
   return (
-    <div className="result-container">
+    <div className="results-container">
       {resultList.length > 0 && (
-        <div className="result-inner">
-          <h1 className="result-header">RESULTS</h1>
-          {resultList}
+        <div className="results-index">
+          <div className="results-index-container">
+            <div className="results-heading-container">
+              <h1 className="results-heading">RESULTS</h1>
+            </div>
+            <div className="product-index-layout">
+              {resultList}
+              {dummyDivs}
+            </div>
+          </div>
         </div>
       )}
       {!resultList.length > 0 && (
-        <div className="no-result-container">
-          <h1 className="no-result-h1">No Results for "{searchTerm}"</h1>
-          <span className="no-result-span">
-            Try use a different term instead
+        <div className="no-results-container">
+          <h1 className="no-results-found">
+            No Results found for "{searchTerm}".
+          </h1>
+          <span className="no-results-message">
+            Please try searching for a different term instead.
           </span>
         </div>
       )}

@@ -17,13 +17,13 @@ const Navbar = () => {
     dispatch(sessionActions.logout());
   };
 
-  const handleSearchSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(fetchSearches(e.target.value));
     history.push(`/search/${searchTerm}`);
   };
 
-  const handleChangeInput = (e) => {
+  const handleChange = (e) => {
     e.preventDefault();
     setSearchTerm(e.target.value);
   };
@@ -34,7 +34,7 @@ const Navbar = () => {
         <img src={logo} alt="logo" className="logo" />
       </Link>
 
-      <form className="search-bar" onSubmit={handleSearchSubmit}>
+      <form className="search-bar" onSubmit={handleSubmit}>
         <div className="category-drop-down-container">
           <select className="category-drop-down">
             <option value="all">All</option>
@@ -45,7 +45,7 @@ const Navbar = () => {
           type="text"
           className="search-bar-input"
           placeholder="Search Ryamazon"
-          onChange={handleChangeInput}
+          onChange={handleChange}
         />
         <div className="search-bar-button-container">
           <button type="submit" className="search-bar-button">

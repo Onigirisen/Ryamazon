@@ -2,11 +2,6 @@ const RECEIVE_SEARCH = "search/RECEIVE_SEARCH";
 const RECEIVE_SEARCHES = "search/RECEIVE_SEARCHES";
 const RESET_SEARCH = "search/RESET_SEARCH";
 
-const receiveSearch = (search) => ({
-  type: RECEIVE_SEARCH,
-  search,
-});
-
 const receiveSearches = (searches) => ({
   type: RECEIVE_SEARCHES,
   searches,
@@ -18,11 +13,6 @@ const resetSearch = () => ({
 
 export const getSearches = ({ searches }) =>
   searches ? Object.values(searches) : [];
-
-export const getSearch =
-  (productId) =>
-  ({ searches }) =>
-    searches ? searches[productId] : null;
 
 export const fetchSearches = (term) => async (dispatch) => {
   if (term === "") {
