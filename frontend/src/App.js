@@ -11,6 +11,7 @@ import ProductIndex from "./components/ProductIndex";
 import HomePage from "./components/HomePage";
 import Footer from "./components/Footer";
 import ReviewForm from "./components/ReviewForm";
+import Search from "./components/Search/Search";
 
 function App() {
   return (
@@ -58,10 +59,24 @@ function App() {
           <ReviewForm />
           <Footer />
         </Route>
-        <Route exact path="/:category">
+        <Route exact path="/category/:category">
           <Navbar />
           <CategoryNav />
           <ProductIndex />
+          <Footer />
+        </Route>
+
+        <Route exact path="/search/:searchTerm">
+          <Navbar />
+          <CategoryNav />
+          <Search />
+          <Footer />
+        </Route>
+
+        <Route exact path="/search">
+          <Navbar />
+          <CategoryNav />
+          <Search />
           <Footer />
         </Route>
 

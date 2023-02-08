@@ -1,16 +1,31 @@
 // import shoppingCart from "../../assets/images/shopping-cart-2.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import logo from "../../assets/images/ry_white.png";
 import ShoppingCart from "../ShoppingCart";
+import { useState } from "react";
+import { fetchSearches } from "../../store/search";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const [searchTerm, setSearchTerm] = useState("");
   const sessionUser = useSelector((state) => state.session.user);
 
   const handleClick = (e) => {
     dispatch(sessionActions.logout());
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    dispatch(fetchSearches(e.target.value));
+    history.push(`/search/${searchTerm}`);
+  };
+
+  const handleChangeInput = (e) => {
+    e.preventDefault();
+    setSearchTerm(e.target.value);
   };
 
   return (
@@ -19,17 +34,18 @@ const Navbar = () => {
         <img src={logo} alt="logo" className="logo" />
       </Link>
 
-      <form className="search-bar">
+      <form className="search-bar" onSubmit={handleSearchSubmit}>
         <div className="category-drop-down-container">
           <select className="category-drop-down">
             <option value="all">All</option>
-            <option value="best sellers">Best Sellers</option>
+            {/* <option value="best sellers">Best Sellers</option> */}
           </select>
         </div>
         <input
           type="text"
           className="search-bar-input"
-          placeholder="Search feature coming soon.."
+          placeholder="Search Ryamazon"
+          onChange={handleChangeInput}
         />
         <div className="search-bar-button-container">
           <button type="submit" className="search-bar-button">

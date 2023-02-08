@@ -25,4 +25,8 @@ class Product < ApplicationRecord
     def average_rating
         reviews.average(:rating)
     end
+
+    def self.search_by_name(search_input)
+        Product.where("name ILIKE :search", search: "%#{search_input}%").to_a
+    end
 end

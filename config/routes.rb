@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     end
     resources :carts, only: [:show, :create, :update, :destroy] 
     delete :destroy_cart_items, controller: "carts"
+    get "/search/products/:term", to: "search#search_results"
   end
-
   get '*path', to: "static_pages#frontend_index"
 
 end

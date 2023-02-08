@@ -12,37 +12,37 @@ const CategoryNav = () => {
             </span>
           </div>
         </Link>
-        <Link to="/books">
+        <Link to="/category/books">
           <div className="nav-link">
             <span className="nav-link-bottom-line"> Books </span>
           </div>
         </Link>
-        <Link to="/electronics">
+        <Link to="/category/electronics">
           <div className="nav-link">
             <span className="nav-link-bottom-line"> Electronics </span>
           </div>
         </Link>
-        <Link to="/computers">
+        <Link to="/category/computers">
           <div className="nav-link">
             <span className="nav-link-bottom-line"> Computers </span>
           </div>
         </Link>
-        <Link to="/petsupplies">
+        <Link to="/category/petsupplies">
           <div className="nav-link">
             <span className="nav-link-bottom-line"> Pet Supplies </span>
           </div>
         </Link>
-        <Link to="/beautyhealth">
+        <Link to="/category/beautyhealth">
           <div className="nav-link">
             <span className="nav-link-bottom-line"> Beauty & Health </span>
           </div>
         </Link>
-        <Link to="/toyskidsbaby">
+        <Link to="/category/toyskidsbaby">
           <div className="nav-link">
             <span className="nav-link-bottom-line"> Toys, Kids & Baby </span>
           </div>
         </Link>
-        <Link to="/sports">
+        <Link to="/category/sports">
           <div className="nav-link">
             <span className="nav-link-bottom-line"> Sports </span>
           </div>

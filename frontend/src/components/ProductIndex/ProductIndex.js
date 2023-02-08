@@ -6,11 +6,13 @@ import {
   getProducts,
   fetchProducts,
   fetchProductsByCategory,
+  fetchSearchProducts,
 } from "../../store/product";
 
 const ProductIndex = () => {
   const dispatch = useDispatch();
   const { category } = useParams();
+  const { result } = useParams();
   const allProducts = useSelector(getProducts);
   const productListItem = allProducts.map((product) => (
     <ProductItem key={product.id} product={product} />
@@ -21,6 +23,10 @@ const ProductIndex = () => {
       ? dispatch(fetchProductsByCategory(category))
       : dispatch(fetchProducts());
   }, [dispatch, category]);
+
+  // useEffect(() => {
+  //   result ? dispatch(fetchSearchProducts(result)) : dispatch(fetchProducts());
+  // }, [dispatch, result]);
 
   const dummyDivs = [1, 2, 3, 4, 5, 6, 7].map((el) => (
     <div className="hidden-product-placeholder" key={el}></div>
