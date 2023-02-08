@@ -27,7 +27,7 @@ const ReviewForm = () => {
 
   useEffect(() => {
     if (reviewId) dispatch(fetchReview(productId, reviewId));
-  }, [productId, reviewId, dispatch]);
+  }, [reviewId, dispatch]);
 
   useEffect(() => {
     dispatch(fetchProduct(productId));
@@ -44,15 +44,22 @@ const ReviewForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (rating && title && body) {
-      dispatch(createReview({ title, body, rating, productId: product.id }));
-    } else {
-      dispatch(
-        updateReview({ ...review, title, body, rating, productId: product.id })
-      );
+      if (!reviewId) {
+        dispatch(createReview({ title, body, rating, productId }, productId));
+      } else {
+        dispatch(
+          updateReview(productId, {
+            ...review,
+            title,
+            body,
+            rating,
+          })
+        );
+      }
+      setTimeout(() => {
+        history.replace(`/products/${productId}`);
+      }, 500);
     }
-    setTimeout(() => {
-      history.replace(`/products/${productId}`);
-    }, 500);
   };
 
   return (
@@ -76,7 +83,7 @@ const ReviewForm = () => {
             {[...Array(5)].map((star, i) => {
               const ratingValue = i + 1;
               return (
-                <label>
+                <label key={i}>
                   <input
                     className="radio-rating"
                     type="radio"

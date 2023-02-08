@@ -30,6 +30,7 @@
   flex-direction: column;
   margin-top: 30px;
   margin-bottom: 30px;
+  width: 50%;
 }
 
 .review-form {
@@ -45,6 +46,9 @@
 
 .review-form-title {
   margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .review-form-title > h1 {

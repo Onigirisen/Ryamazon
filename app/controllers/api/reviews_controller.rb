@@ -34,6 +34,7 @@ class Api::ReviewsController < ApplicationController
         @review = Review.find(params[:id])
         if @review
             @review.update(review_params)
+            render :show
         end
     end
 
