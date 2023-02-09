@@ -38,7 +38,6 @@ export const fetchReview = (productId, reviewId) => async (dispatch) => {
   const res = await csrfFetch(`/api/products/${productId}/reviews/${reviewId}`);
   const data = await res.json();
   dispatch(receiveReview(data));
-  console.log(data);
 };
 
 export const createReview = (review, productId) => async (dispatch) => {
@@ -64,9 +63,7 @@ export const updateReview = (productId, review) => async (dispatch) => {
       },
     }
   );
-  console.log(res);
   const data = await res.json();
-  console.log(review.id);
   dispatch(receiveReview(data));
 };
 
