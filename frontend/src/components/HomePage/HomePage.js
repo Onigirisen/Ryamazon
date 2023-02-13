@@ -9,10 +9,19 @@ import cutest from "../../assets/images/Hudson-baby-robe.jpg";
 import cats from "../../assets/images/dr-elsy-cat-litter.jpg";
 import reptiZoo from "../../assets/images/repti-z00.jpg";
 import { Link } from "react-router-dom";
+import HomeCarousel from "../HomeCarousel";
 const HomePage = () => {
+  // const slides = [
+  //   "../../assets/images/It_starts_with_Us.jpg",
+  //   "../../assets/images/raiders-jersey.jpg",
+  //   "../../assets/images/chuckit-ball-toy.jpg",
+  //   "../../assets/images/mario-badescu-body.jpg",
+  // ];
+
   return (
     <div className="homepage">
       <div className="homepage-container">
+        {/* <HomeCarousel slides={slides} /> */}
         <img className="homepage-background" src={background} alt="" />
         <div className="homepage-layout">
           <Link to="/products/44">

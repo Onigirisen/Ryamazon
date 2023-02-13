@@ -1,0 +1,74 @@
+.HomeCarousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.HomeCarousel .slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform: translateX(-${props => props.translateValue}px);
+}
+
+.HomeCarousel .slide {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.HomeCarousel .slide img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.HomeCarousel .prev,
+.HomeCarousel .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1;
+}
+
+.HomeCarousel .prev {
+  left: 10px;
+}
+
+.HomeCarousel .next {
+  right: 10px;
+}
+
+.HomeCarousel .dot-container {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.HomeCarousel .dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.HomeCarousel .active {
+  background-color: #717171;
+}
